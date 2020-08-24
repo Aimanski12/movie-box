@@ -1,11 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
 
 export default function NotFound() {
   
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Head>
         <title>Movie Box | Not Found</title>
         <link rel="icon" href="/favicon.ico" />

@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import styles from '../../../../styles/Home.module.css'
 
 export default function Person() {
   const router = useRouter()
@@ -10,7 +9,7 @@ export default function Person() {
   console.log(person.person)
   
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Head>
         <title>Movie Box | People - {person.person}</title>
         <link rel="icon" href="/favicon.ico" />
