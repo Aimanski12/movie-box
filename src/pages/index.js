@@ -1,7 +1,15 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
+import HeaderCarousel from '../components/Header/Carousel'
+import {AppsData} from '../utils/context/appDataContext'
 
-export default function Trending() {
+export default function Home() {
+  const {setActiveRoute} = useContext(AppsData)
+
+  useEffect(()=>{
+    setActiveRoute('Home')
+  })
 
   return (
     <div className='main-container content-center'>
@@ -12,18 +20,10 @@ export default function Trending() {
 
       <div className="main">
         <Navbar />  
+        <HeaderCarousel />
 
-
-
-      <div className="div1"></div>
       <div className="div2"></div>
       </div>
-
-
-
-
-
-      
     </div>
   )
 }

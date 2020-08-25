@@ -1,0 +1,49 @@
+.controls {
+  position: absolute;
+  top: 47.5vh;
+  width: 100%;
+  height: 30px;
+}
+
+.controls button.next, .controls button.prev {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 30px;
+  height: 30px;
+  background: rgba(215,215,215,0.2 );
+  transition: all 0.2s ease-in;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+.controls button.next {
+  right: 20px;
+}
+
+.controls button.prev {
+  left: 20px;
+}
+
+.controls button svg {
+  width: 10px;
+}
+
+.controls button:hover{
+  background: rgba(230, 230, 230, 0.8);
+  transition: all 0.2s ease-in;
+}
+
+.controls button:hover svg path{
+  fill: #575757;
+  transition: all 0.2s ease-in;
+}
+
+
+@media (max-width: 868px){
+  .controls {
+    display: none;
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "routes": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "TV Shows",
+      "href": "/tv-shows"
+    },
+    {
+      "name": "Trending",
+      "href": "/trending"
+    },
+    {
+      "name": "Discover",
+      "href": "/discover",
+      "routes": [
+        {
+          "name": "Popular",
+          "href": "/popular"
+        },
+        {
+          "name": "Top Rated",
+          "href": "/top-rated"
+        },
+        {
+          "name": "Upcoming",
+          "href": "/upcoming"
+        }
+      ]
+    },
+    {
+      "name": "Hide",
+      "routes": [
+        {
+          "name": "Popular",
+          "href": "/popular"
+        },
+        {
+          "name": "Top Rated",
+          "href": "/top-rated"
+        },
+        {
+          "name": "Upcoming",
+          "href": "/upcoming"
+        }
+      ]
+    },
+    {
+      "name": "People",
+      "href": "/people"
+    },
+    {
+      "name": "Genre",
+      "href": "/genre"
+    }
+  ]
+}

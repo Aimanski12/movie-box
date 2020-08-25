@@ -1,28 +1,31 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
-import {useRouter} from 'next/router'
+import Navbar from '../../../components/Navbars/Navbars'
+import {AppsData} from '../../../utils/context/appDataContext'
 
-export default function Movie() {
-  const router = useRouter()
+export default function MovieId() {
+  const {setActiveRoute} = useContext(AppsData)
+
+  useEffect(()=>{
+    setActiveRoute('Movie Indvl')
+  })
   
-  console.log(router.query)
-
-
   return (
-    <div className='container'>
+    <div className='main-container content-center'>
       <Head>
-        <title>Movie Box | {router.query.movie} Movies</title>
+        <title>Movie Box | Movie Details</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Movie Details</h1>
-      <Link href='/'>
-        <a>Go Back</a>
-      </Link>
-      
+      <div className="main">
+        <Navbar />  
+        <div className="div1"></div>
+        <div className="div2"></div>
+      </div>
 
 
 
     </div>
   )
 }
+

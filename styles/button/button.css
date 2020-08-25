@@ -1,0 +1,95 @@
+.link-btn {
+  min-width: 100px;
+  padding: 0 25px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  letter-spacing: 0.5px;
+  color: #676767;
+  background: #5DE2F4;
+  transition: all 0.3s ease-in
+}
+
+.link-btn:hover {
+  cursor: pointer;
+  background: #25B5C9;
+  color: #E0E0E0;
+  transition: all 0.3s ease-in
+}
+
+@media (max-width: 1168px){
+  .link-btn {
+    height: 45px;
+    font-size: 0.9em;
+    
+    /* min-width: 95px; */
+    padding: 0 25px;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    color: #676767;
+    background: #5DE2F4;
+    transition: all 0.3s ease-in
+  }
+
+  .link-btn:hover {
+
+    cursor: pointer;
+    background: #25B5C9;
+    color: #E0E0E0;
+    transition: all 0.3s ease-in
+  } 
+}
+
+
+@media (max-width: 1068px) {
+  .link-btn {
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 568px) {
+  .link-btn {
+    padding: 0 20px;
+    font-size: 0.85em;
+    height: 40px;
+    
+    border-radius: 5px;
+    /* min-width: 95px; */
+    letter-spacing: 0.5px;
+    color: #676767;
+    background: #5DE2F4;
+    transition: all 0.3s ease-in
+  }
+
+  .link-btn:hover {
+
+    cursor: pointer;
+    background: #25B5C9;
+    color: #E0E0E0;
+    transition: all 0.3s ease-in
+  }
+}
+
+
+@media (max-width: 468px) {
+  .link-btn {
+    height: 35px;
+    padding: 0 15px;
+    font-size: 0.8em;
+    
+    border-radius: 5px;
+    /* min-width: 95px; */
+    letter-spacing: 0.5px;
+    color: #676767;
+    background: #5DE2F4;
+    transition: all 0.3s ease-in
+  }
+
+  .link-btn:hover {
+
+    cursor: pointer;
+    background: #25B5C9;
+    color: #E0E0E0;
+    transition: all 0.3s ease-in
+  }
+}

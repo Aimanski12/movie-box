@@ -3,14 +3,11 @@
   width: 290px;
   height: 100%;
   right: 80px;
-  /* background:rgba(190,190,190, 0.1); */
-  /* background: white; */
 }
 
 .search-icon{
   display: none;
 }
-
 
 .search-form {
   height: 100%;
@@ -33,7 +30,6 @@
   color: #909090;
 }
 .search-input:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   color: #909090;
 }
 

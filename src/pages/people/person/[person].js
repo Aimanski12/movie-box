@@ -1,25 +1,27 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
-import {useRouter} from 'next/router'
+import Navbar from '../../../components/Navbars/Navbars'
+import {AppsData} from '../../../utils/context/appDataContext'
 
 export default function Person() {
-  const router = useRouter()
-  const person = router.query
+  const {setActiveRoute} = useContext(AppsData)
 
-  console.log(person.person)
+  useEffect(()=>{
+    setActiveRoute('Person')
+  })
   
   return (
-    <div className='container'>
+    <div className='main-container content-center'>
       <Head>
-        <title>Movie Box | People - {person.person}</title>
+        <title>Movie Box | Person</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <Link href='/'>
-        <a>Go Back</a>
-      </Link>
-      
+      <div className="main">
+        <Navbar />  
+        <div className="div1"></div>
+        <div className="div2"></div>
+      </div>
 
 
 

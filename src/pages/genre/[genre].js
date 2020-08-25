@@ -1,8 +1,15 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
+import Navbar from '../../components/Navbars/Navbars'
 import {useRouter} from 'next/router'
-import Link from 'next/link'
+import {AppsData} from '../../../utils/context/appDataContext'
 
 export default function Genre() {
+  const {setActiveRoute} = useContext(AppsData)
+
+  useEffect(()=>{
+    setActiveRoute('Genre Indvl')
+  })
 
   const router = useRouter()
 
@@ -17,17 +24,17 @@ export default function Genre() {
   }
   
   return (
-    <div className='container'>
+    <div className='main-container content-center'>
       <Head>
-        <title>Movie Box | Genre Movies</title>
+        <title>Movie Box | Genre</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <Link href='/'>
-        <a>Go Back</a>
-      </Link>
-      
+      <div className="main">
+        <Navbar />  
+        <div className="div1"></div>
+        <div className="div2"></div>
+      </div>
 
 
 

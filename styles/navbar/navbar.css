@@ -4,12 +4,10 @@
   flex-direction: row;
   z-index: 500;
   position: fixed;
-  background: #161E39;
   top: 0;
   opacity: 1;
   transition: all 0.3s ease-in;
   justify-content: start;
-  /* justify-content: space-between; */
 }
 
 .fade {
@@ -26,10 +24,15 @@
   }
 }
 
-@media (max-width: 1068px) {
+@media (max-width: 968px) {
   .top-nav, .fade {
     top: 0;
     opacity: 1;
   }
+  .top-nav {
+    background: #161E39;
+  }
 }
+
+
 

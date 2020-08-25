@@ -1,23 +1,31 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
+import Navbar from '../../components/Navbars/Navbars'
+import {AppsData} from '../../utils/context/appDataContext'
 
-export default function Popular() {
+export default function ThisWeek() {
+  const {setActiveRoute} = useContext(AppsData)
+
+  useEffect(()=>{
+    setActiveRoute('This Week')
+  })
   
   return (
-    <div className='container'>
+    <div className='main-container content-center'>
       <Head>
-        <title>Movie Box | This Week's Trending Movies</title>
+        <title>Movie Box | Trending - This Week</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <Link href='/'>
-        <a>Go Back</a>
-      </Link>
-      
+      <div className="main">
+        <Navbar />  
+        <div className="div1"></div>
+        <div className="div2"></div>
+      </div>
 
 
 
     </div>
   )
 }
+

@@ -1,20 +1,27 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
+import Navbar from '../../components/Navbars/Navbars'
+import {AppsData} from '../../utils/context/appDataContext'
 
 export default function People() {
+  const {setActiveRoute} = useContext(AppsData)
+
+  useEffect(()=>{
+    setActiveRoute('People')
+  })
   
   return (
-    <div className='container'>
+    <div className='main-container content-center'>
       <Head>
         <title>Movie Box | People</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>People page</h1>
-      <Link href='/people/person/[person]' as={`/people/person/${'john'}`}>
-        <a>Go to john</a>
-      </Link>
-      
+      <div className="main">
+        <Navbar />  
+        <div className="div1"></div>
+        <div className="div2"></div>
+      </div>
 
 
 

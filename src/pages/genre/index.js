@@ -1,26 +1,27 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
+import Navbar from '../../components/Navbars/Navbars'
+import {AppsData} from '../../utils/context/appDataContext'
 
 export default function Genre() {
+  const {setActiveRoute} = useContext(AppsData)
+
+  useEffect(()=>{
+    setActiveRoute('Genre')
+  })
   
   return (
-    <div className='container'>
+    <div className='main-container content-center'>
       <Head>
-        <title>Movie Box | Movie by Genre</title>
+        <title>Movie Box | Genre</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <Link href='/genre/[genre]' as={`/genre/${'action'}`}>
-        <a>Action</a>
-      </Link>
-      <Link href='/genre/[genre]' as={`/genre/${'drama'}`}>
-        <a>Drama</a>
-      </Link>
-      <Link href='/genre/[genre]' as={`/genre/${'western'}`}>
-        <a>Western</a>
-      </Link>
-      
+      <div className="main">
+        <Navbar />  
+        <div className="div1"></div>
+        <div className="div2"></div>
+      </div>
 
 
 

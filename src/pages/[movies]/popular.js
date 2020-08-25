@@ -1,23 +1,31 @@
+import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
+import Navbar from '../../components/Navbars/Navbars'
+import {AppsData} from '../../utils/context/appDataContext'
 
 export default function Popular() {
+  const {setActiveRoute} = useContext(AppsData)
+
+  useEffect(()=>{
+    setActiveRoute('TV Popular')
+  })
   
   return (
-    <div className='container'>
+    <div className='main-container content-center'>
       <Head>
-        <title>Movie Box | Popular TV Shows</title>
+        <title>Movie Box | TV Shows - Popular</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <Link href='/'>
-        <a>Go Back</a>
-      </Link>
-      
+      <div className="main">
+        <Navbar />  
+        <div className="div1"></div>
+        <div className="div2"></div>
+      </div>
 
 
 
     </div>
   )
 }
+
