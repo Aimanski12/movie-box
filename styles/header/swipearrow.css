@@ -41,8 +41,15 @@
   transition: all 0.2s ease-in;
 }
 
+@media screen and (max-width: 896px) and (orientation: landscape) {
 
-@media (max-width: 868px){
+  .controls {
+    top: 340px;
+  }
+
+}
+
+@media (max-width: 668px){
   .controls {
     display: none;
   }

@@ -21,16 +21,18 @@
   border: none;
   border-radius: 8px 0 0 8px;
   padding-left: 18px;
-  font-size: 1em;
-  background: #2B365C;
-  color: #909090;
+  font-size: 0.95em;
+  background: #262C42;
+  color: #AFAFAF;
+  font-weight: 300;
+  letter-spacing: 0.8px;
 }
 
 .search-input::placeholder{
-  color: #909090;
+  color: #AFAFAF;
 }
 .search-input:-ms-input-placeholder {
-  color: #909090;
+  color: #AFAFAF;
 }
 
 .search-input:focus {
@@ -143,6 +145,7 @@
     height: 0;
     overflow: hidden;
     background: #243057;
+    /* background: #161E39; */
     transition: all 0.2s ease-in;
   }
   .search-input {

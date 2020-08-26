@@ -1,15 +1,10 @@
-import React, {useEffect, useContext} from 'react'
+import React from 'react'
 import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
 import HeaderCarousel from '../components/Header/Carousel'
-import {AppsData} from '../utils/context/appDataContext'
+import {homeDataPage} from '../utils/apis/api'
 
-export default function Home() {
-  const {setActiveRoute} = useContext(AppsData)
-
-  useEffect(()=>{
-    setActiveRoute('Home')
-  })
+export default function Home({data}) {
 
   return (
     <div className='main-container content-center'>
@@ -20,10 +15,16 @@ export default function Home() {
 
       <div className="main">
         <Navbar />  
-        <HeaderCarousel />
+        <HeaderCarousel 
+          data={data.popular}/>
 
       <div className="div2"></div>
       </div>
     </div>
   )
+}
+
+Home.getInitialProps = async () => {
+  const data = await homeDataPage()
+  return {data}
 }

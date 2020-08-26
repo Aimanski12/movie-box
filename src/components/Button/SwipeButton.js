@@ -1,14 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import ArrowLeft from '../Svgs/Svgs/Arrowleft'
 import ArrowRight from '../Svgs/Svgs/Arrowright'
+import {animSlide, onLoadAnim} from '../../utils/animation/mainheader/landing'
 
-function SwipeButton() {
+function SwipeButton(props) {
+  useEffect(() => {
+    window.onload = ()=>{
+      onLoadAnim(props.length)
+    }
+  })
+  
   return (
     <div className="controls">
-      <button className="content-center next">
+      <button 
+        onClick={()=>animSlide('next', props.length)}
+        className="content-center next">
         <ArrowRight />
       </button>
-      <button className="content-center prev">
+      <button 
+        onClick={()=>animSlide('prev', props.length)}
+        className="content-center prev">
         <ArrowLeft />
       </button>
     </div>

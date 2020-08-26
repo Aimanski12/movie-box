@@ -1,65 +1,32 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import SwipeButton from '../Button/SwipeButton'
 import LandingHeader from './LandingHeader'
-import axios from 'axios'
 
-function HeaderCarousel() {
+function HeaderCarousel(props) {
+  const [w, setWidth] = useState(0)
+  
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+    w === 0 ? setWidth(window.innerWidth): null
+  })
 
-  useEffect(()=>{
-    // const carousel = document.querySelector('.carousel');
-    // const slider = document.querySelector('.slider');
 
-    // const next = document.querySelector('.next');
-    // const prev = document.querySelector('.prev');
-    // let direction;``
-
-    // next.addEventListener('click', function () {
-    //   direction = -1;
-    //   carousel.style.justifyContent = 'flex-start';
-    //   slider.style.transform = 'translate(-20%)';
-    // });
-
-    // prev.addEventListener('click', function () {
-    //   if (direction === -1) {
-    //     direction = 1;
-    //     slider.appendChild(slider.firstElementChild);
-    //   }
-    //   carousel.style.justifyContent = 'flex-end';
-    //   slider.style.transform = 'translate(20%)';
-
-    // });
-
-    // slider.addEventListener('transitionend', function () {
-    //   // get the last element and append it to the front
-
-    //   if (direction === 1) {
-    //     slider.prepend(slider.lastElementChild);
-    //   } else {
-    //     slider.appendChild(slider.firstElementChild);
-    //   }
-
-    //   slider.style.transition = 'none';
-    //   slider.style.transform = 'translate(0)';
-    //   setTimeout(() => {
-    //     slider.style.transition = 'all 0.5s';
-    //   })
-    // }, false);
+  let hero = props.data.results.map((result, i)=> {
+    return (
+      <LandingHeader
+        width={w}
+        key={i}
+        data={result} /> )
   })
 
   return (
     <header className="header">
       <div className="carousel">
         <div className="slider">
-          <LandingHeader />
-          <section>Content section 1</section>
-          <section>Content section 2</section>
-          <section>Content section 3</section>
-          <section>Content section 4</section>
+          {hero}
         </div>
-
-        <SwipeButton />
-        
-      
+        <SwipeButton 
+          length={props.data.results.length}/>
       </div>
     </header>
   )

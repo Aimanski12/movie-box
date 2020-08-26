@@ -20,13 +20,11 @@
   transition: all 0.5s;
 }
 
-section {
-  flex-basis: 20%;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .header {
+    height: 710px;
+  }
+  .carousel, .slider {
+    height: 730px;
+  }
 }
-
-
