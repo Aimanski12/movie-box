@@ -51,6 +51,6 @@
 
 @media (max-width: 668px){
   .controls {
-    display: none;
+    /* display: none; */
   }
 }

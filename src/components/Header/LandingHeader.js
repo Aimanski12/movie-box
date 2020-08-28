@@ -1,7 +1,7 @@
 import React from 'react'
-import Star from '../../components/Svgs/Svgs/Start'
-import LinkBtn from '../Button/LinkButton'
-import {filterText} from '../../utils/common/common'
+import Star from '../../components/Svgs/Svgs/Star'
+import {filterDesc} from '../../utils/common/common'
+import Link from 'next/link'
 
 function LandingHeader(props) {
 
@@ -21,8 +21,10 @@ function LandingHeader(props) {
                 Rating &nbsp; {props.data.vote_average} &nbsp; <Star />
               </p>
               <p className='short-desc'>
-                {filterText(props.data.overview, props.width)}</p>
-              <LinkBtn />
+                {filterDesc(props.data.overview, props.width)}</p>
+              <Link href='/'>
+                <a className='content-center link-btn'>View More</a>
+              </Link>
             </div>
           </div>
           <div className="content-center landing-poster">

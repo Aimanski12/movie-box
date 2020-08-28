@@ -6,54 +6,39 @@ export const AppsData = createContext()
 export function AppsDataContext (props) {
 
   // routes state
-  const [routes, setRoutes] = useState({
+  const [page, setRoutes] = useState({
     active: 'Home',
-    urls: route.routes
+    urls: route.routes,
+    landingHeader: 0
   })
 
-  // page data state
-  const [pageData, setPageData] = useState({
-    isSet: false,
-    data: {}
-  })
+  function setPageState (newState) {
+    setRoutes({
+      ...page,
+      ...newState
+    })
+  }
 
   // update route state
   function setNewState (val) {
-    if(val !== routes.active){
-      setRoutes({
-        ...routes, 
+    if(val !== page.active){
+      setPageState({
         active: val
       })
     }
   }
 
-  // set the page date state
-  function setData (val) {
-    if(!pageData.isSet) {
-      setPageData({
-        isSet: true,
-        data: val
-      })
-    }
-  }
-
-  // set the page date state to off 
-  function setOffData () {
-    if (pageData.isSet) {
-      setPageData({
-        ...pageData,
-        isSet: false,
-      })
-    }
+  function setPageHeader(val) {
+    setPageState({
+      landingHeader: val
+    })
   }
 
   return(
     <AppsData.Provider value={{
-      routes,
+      page,
       setActiveRoute: setNewState, 
-      data: pageData.data,
-      setData: setData,
-      setOffData: setOffData
+      setHeaderNum: setPageHeader
     }}>
       {props.children}
     </AppsData.Provider>

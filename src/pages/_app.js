@@ -12,6 +12,18 @@ import '../../styles/header/swipearrow.css'
 import '../../styles/header/landing-header.css'
 import '../../styles/button/button.css'
 
+// movie list css
+import '../../styles/movielist/movielist.css'
+
+// footer
+import '../../styles/footer/footer.css'
+import '../../styles/footer/quotes.css'
+import '../../styles/footer/footerdesc.css'
+import '../../styles/footer/footernav.css'
+import '../../styles/footer/footerlinks.css'
+
+// pagination
+import '../../styles/pagination/pagination.css'
 
 import {AppsDataContext} from '../utils/context/appDataContext'
 

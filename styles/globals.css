@@ -17,9 +17,8 @@ a {
 body, .main-container {
   min-height: 100vh;
   width: 100%;
-  background: radial-gradient(50% 50% at 50% 50%, #2A355C 0%, #263054 34.9%, #1D2646 70.31%, #161E39 100%);
+  background: #161E39;
 }
-
 
 
 .content-center {
@@ -32,8 +31,8 @@ body, .main-container {
 .main {
   width: 1580px;
   height: 100vh;
-  /* background: gray; */
 }
+
 
 /* delete this part */
 /* delete this part */
@@ -70,6 +69,10 @@ body, .main-container {
   letter-spacing: 0.5px;
   line-height: 29px;
   margin-bottom: 30px;
+}
+
+.page-padding {
+  padding-top: 110px
 }
 
 @media(max-width: 1600px){

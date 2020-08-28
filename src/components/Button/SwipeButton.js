@@ -1,24 +1,30 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import ArrowLeft from '../Svgs/Svgs/Arrowleft'
 import ArrowRight from '../Svgs/Svgs/Arrowright'
-import {animSlide, onLoadAnim} from '../../utils/animation/mainheader/landing'
+import {checkCurrent} from '../../utils/animation/mainheader/landing'
+import {AppsData} from '../../utils/context/appDataContext'
+import {setInitialOpacity} from '../../utils/animation/mainheader/landing'
 
-function SwipeButton(props) {
+function SwipeButton() {
+  const {page, setHeaderNum} = useContext(AppsData)
+  
   useEffect(() => {
-    window.onload = ()=>{
-      onLoadAnim(props.length)
-    }
+    setInitialOpacity(page.landingHeader)
   })
+
+  function getLength (direction){
+    setHeaderNum( checkCurrent(direction, page.landingHeader) )
+  }
   
   return (
     <div className="controls">
       <button 
-        onClick={()=>animSlide('next', props.length)}
+        onClick={()=> getLength('next')}
         className="content-center next">
         <ArrowRight />
       </button>
       <button 
-        onClick={()=>animSlide('prev', props.length)}
+        onClick={()=> getLength('prev')}
         className="content-center prev">
         <ArrowLeft />
       </button>

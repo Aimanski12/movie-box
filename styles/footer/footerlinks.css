@@ -1,0 +1,27 @@
+.footer-links {
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 250px;
+  height: 35px;
+  /* background: rgba(190,190,190,0.1); */
+}
+
+.footer-links span {
+  height: 35px;
+  width: 35px;
+  transform: scale(1);
+  transition: all 0.2s ease-in;
+}
+
+.footer-links a, .footer-links img {
+  height: 35px;
+  width: 35px;
+}
+
+.footer-links span:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in;
+}

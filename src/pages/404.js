@@ -14,7 +14,7 @@ export default function NotFound() {
     <div className='main-container content-center'>
       <Head>
         <title>Movie Box | Not Found</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/image/favicon.ico" />
       </Head>
 
       <div className="main">

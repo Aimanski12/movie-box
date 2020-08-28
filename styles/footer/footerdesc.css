@@ -1,0 +1,28 @@
+.footer-desc {
+  color: #B5B5B5
+}
+
+.footer-desc span {
+  display: block;
+  font-size: 0.78em;
+  font-weight: 400;
+  margin-bottom: 5px;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+
+.footer-desc span:nth-child(2) {
+  color: #80D2DD;
+  transition: all 0.2s ease-in;
+}
+
+.footer-desc span:nth-child(2):hover {
+  cursor: pointer;
+  color: #71B1BA;
+  transition: all 0.2s ease-in;
+}
+
+.footer-desc span a {
+  font-weight: 400;
+}

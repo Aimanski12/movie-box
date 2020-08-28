@@ -4,13 +4,13 @@ import {enter, leave} from '../../../utils/animation/navbar/showSubmenu'
 import {AppsData} from '../../../utils/context/appDataContext'
 
 function Menulistbar() {
-  const {routes} = useContext(AppsData)
+  const {page} = useContext(AppsData)
 
   // return link tags
   const alink = (url) => {
     return (
       <Link href={url.href} as={url.href}>
-        <a className={url.name === routes.active ? 'active' : null}>{url.name}</a>
+        <a className={url.name === page.active ? 'active' : null}>{url.name}</a>
       </Link>
     )
   }
@@ -29,7 +29,7 @@ function Menulistbar() {
   }
   
   // main menu url links
-  const urls = routes.urls.map((url, i) => {
+  const urls = page.urls.map((url, i) => {
     if(url.name === 'Discover') {
       return ( 
         <li 
@@ -45,7 +45,7 @@ function Menulistbar() {
       return suburls(url.routes, 'hide')
     } else {
       return ( 
-        <li key={i}> {alink(url, routes.active)} </li> )
+        <li key={i}> {alink(url, page.active)} </li> )
     }
   })
 

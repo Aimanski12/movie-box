@@ -12,6 +12,7 @@ function HeaderCarousel(props) {
 
 
   let hero = props.data.results.map((result, i)=> {
+    // console.log(result)
     return (
       <LandingHeader
         width={w}
@@ -25,8 +26,7 @@ function HeaderCarousel(props) {
         <div className="slider">
           {hero}
         </div>
-        <SwipeButton 
-          length={props.data.results.length}/>
+        <SwipeButton />
       </div>
     </header>
   )

@@ -1,24 +1,4 @@
 import anime from 'animejs'
-import next from 'next';
-
-let current = 0
-let timer;
-
-// function to filter the anmation if left or right
-function slide(direction, length) {
-  const landing = document.querySelectorAll('.landing-header');
-  if(direction === 'prev'){
-    landing[current].style.opacity = 0
-    landing[current].style.zIndex = 5
-    current === 0 ? current = length-1 : current -= 1
-    animate(landing[current])
-  } else {
-    landing[current].style.opacity = 0
-    landing[current].style.zIndex = 5
-    current === length-1 ? current= 0 : current += 1
-    animate(landing[current])
-  }
-}
 
 // animate function with 600 duration
 function animate(el) {
@@ -31,22 +11,26 @@ function animate(el) {
   })
 }
 
-// function to run on load
-export function onLoadAnim(length) {
-  timer = setInterval(()=>{
-    slide('next', length)
-  }, 10000)
+// initital select of the header to show
+export function setInitialOpacity (num) {
+  const landing = document.querySelectorAll('.landing-header');
+  for(let x = 0; x < landing.length; x++) {
+    if(x === num) {
+      animate(landing[num])
+    } else {
+      landing[x].style.opacity = 0
+      landing[x].style.zIndex = 5
+    }
+  } 
 }
 
-// function to run when the button is clicked
-export function animSlide(direction, length) {
-  clearInterval(timer)
-  slide(direction, length)
-    
-  // setTimeout(()=>{
-    timer = setInterval(() => {
-      console.log('interval')
-      slide('next', length)
-    }, 10000)
-  // }, 5000)
+export function checkCurrent (direction, current){
+  let num
+  const length = document.querySelectorAll('.landing-header').length - 1;
+  if(direction === 'next') {
+    current >= length ? num = 0 : num = current + 1
+  } else {
+    current === 0 ? num = length : num = current - 1
+  }
+  return num
 }

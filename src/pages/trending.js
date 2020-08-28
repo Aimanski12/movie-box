@@ -1,11 +1,14 @@
 import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
+import MovieList from '../components/MovieLists/MovieList'
+import Footer from '../components/Footer/Footer'
 import {AppsData} from '../utils/context/appDataContext'
+import {filterData} from '../utils/common/common'
+import {trendingDataPage} from '../utils/apis/api'
 
-export default function Trending() {
+export default function Trending({data}) {
   const {setActiveRoute} = useContext(AppsData)
-
   useEffect(()=>{
     setActiveRoute('Trending')
   })
@@ -14,23 +17,28 @@ export default function Trending() {
     <div className='main-container content-center'>
       <Head>
         <title>Movie Box | Trending Movies</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/image/favicon.ico" />
       </Head>
 
-      <div className="main">
+      <div className="main page-padding">
         <Navbar />  
-
-
-
-      <div className="div1"></div>
-      <div className="div2"></div>
+        <MovieList 
+          type='trending'
+          title={'Trending Today'}
+          total={data.day.total_results}
+          data={filterData(data.day.results)}/>
+        <MovieList 
+          type='trending'
+          title={'Trending Week'}
+          total={data.week.total_results}
+          data={filterData(data.week.results)}/>
+        <Footer />
       </div>
-
-
-
-
-
-      
     </div>
   )
+}
+
+Trending.getInitialProps = async () => {
+  const data = await trendingDataPage()
+  return { data }
 }

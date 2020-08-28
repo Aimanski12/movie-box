@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "TV Shows",
+      "href": "/tv-shows"
+    },
+    {
+      "name": "Trending",
+      "href": "/trending"
+    },
+    {
+      "name": "Discover",
+      "href": "/discover"
+    },
+    {
+      "name": "People",
+      "href": "/people"
+    },
+    {
+      "name": "Genre",
+      "href": "/genre"
+    }
+  ]
+}

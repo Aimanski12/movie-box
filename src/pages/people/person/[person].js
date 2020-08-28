@@ -14,7 +14,7 @@ export default function Person() {
     <div className='main-container content-center'>
       <Head>
         <title>Movie Box | Person</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/image/favicon.ico" />
       </Head>
 
       <div className="main">

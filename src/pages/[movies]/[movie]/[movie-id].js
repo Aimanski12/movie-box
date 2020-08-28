@@ -14,7 +14,7 @@ export default function MovieId() {
     <div className='main-container content-center'>
       <Head>
         <title>Movie Box | Movie Details</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/image/favicon.ico" />
       </Head>
 
       <div className="main">
