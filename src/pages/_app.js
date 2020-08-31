@@ -25,6 +25,12 @@ import '../../styles/footer/footerlinks.css'
 // pagination
 import '../../styles/pagination/pagination.css'
 
+// genre
+import '../../styles/genre/genre.css'
+
+// not found
+import '../../styles/notfound/notfound.css'
+
 import {AppsDataContext} from '../utils/context/appDataContext'
 
 function MyApp({ Component, pageProps, router }) {

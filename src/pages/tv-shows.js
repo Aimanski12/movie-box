@@ -26,12 +26,18 @@ export default function TvShows({data}) {
 
         <MovieList 
           type='tv-show'
+          viewBtn={true}
+          hlink='/[movies]/popular'
+          aslink='/tv-shows/popular'
           title={'Popular Shows'}
           total={data.popular.total_results}
           data={filterData(data.popular.results)}/>
 
         <MovieList 
           type='tv-show'
+          viewBtn={true}
+          hlink='/[movies]/on-air'
+          aslink='/tv-shows/on-air'
           title={'On-Air Shows'}
           total={data.on_air.total_results}
           data={filterData(data.on_air.results)}/>

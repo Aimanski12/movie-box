@@ -1,0 +1,118 @@
+{
+  "genre": [
+    {
+      "name": "Action",
+      "img": "avengers",
+      "link": "action",
+      "id": 28
+    },
+    {
+      "name": "Adventure",
+      "img": "jumanji",
+      "link": "adventure",
+      "id": 12
+    },
+    {
+      "name": "Animation",
+      "img": "frozen-2",
+      "link": "animation",
+      "id": 16
+    },
+    {
+      "name": "Comedy",
+      "img": "do-little",
+      "link": "comedy",
+      "id": 35
+    },
+    {
+      "name": "Crime",
+      "img": "sherlock-holmes",
+      "link": "crime",
+      "id": 80
+    },
+    {
+      "name": "Documentary",
+      "img": "kurt-cobain",
+      "link": "documentary",
+      "id": 99
+    },
+    {
+      "name": "Drama",
+      "img": "infinity",
+      "link": "drama",
+      "id": 18
+    },
+    {
+      "name": "Family",
+      "img": "home-alone",
+      "link": "family",
+      "id": 10751
+    },
+    {
+      "name": "Fantasy",
+      "img": "the-lord-of-the-rings",
+      "link": "fantasy",
+      "id": 14
+    },
+    {
+      "name": "History",
+      "img": "hitler-movie",
+      "link": "history",
+      "id": 36
+    },
+    {
+      "name": "Horror",
+      "img": "conjuring",
+      "link": "horror",
+      "id": 27
+    },
+    {
+      "name": "Music",
+      "img": "the-greatest-showman",
+      "link": "music",
+      "id": 10402
+    },
+    {
+      "name": "Mystery",
+      "img": "the-rental",
+      "link": "mystery",
+      "id": 9648
+    },
+    {
+      "name": "Romance",
+      "img": "the-notebook",
+      "link": "romance",
+      "id": 10749
+    },
+    {
+      "name": "Sci-Fi",
+      "img": "interstellar",
+      "link": "sci-fi",
+      "id": 878
+    },
+    {
+      "name": "TV Movie",
+      "img": "game-of-thrones",
+      "link": "tv-movie",
+      "id": 10770
+    },
+    {
+      "name": "Thriller",
+      "img": "you-should-have-left",
+      "link": "thriller",
+      "id": 53
+    },
+    {
+      "name": "War",
+      "img": "1917",
+      "link": "war",
+      "id": 10752
+    },
+    {
+      "name": "Western",
+      "img": "badland",
+      "link": "western",
+      "id": 37
+    }
+  ]
+}

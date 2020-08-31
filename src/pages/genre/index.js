@@ -1,6 +1,8 @@
 import React, {useEffect, useContext} from 'react'
 import Head from 'next/head'
 import Navbar from '../../components/Navbars/Navbars'
+import Footer from '../../components/Footer/Footer'
+import GenreHeader from '../../components/Genre/Genre'
 import {AppsData} from '../../utils/context/appDataContext'
 
 export default function Genre() {
@@ -19,8 +21,8 @@ export default function Genre() {
 
       <div className="main">
         <Navbar />  
-        <div className="div1"></div>
-        <div className="div2"></div>
+        <GenreHeader />
+        <Footer />
       </div>
 
 

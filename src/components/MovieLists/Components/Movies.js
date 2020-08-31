@@ -4,11 +4,13 @@ import Star from '../../Svgs/Svgs/Star'
 import {filterTitle, filterYear} from '../../../utils/common/common'
 
 function Movies(props) {
-
+  
+  let img = props.poster === null ? '/image/backup-image.png' : 
+    `https://image.tmdb.org/t/p/w500${props.poster}`
   return (
      <div className="movie">
       <Link href='/' as='/'>
-        <img src={`https://image.tmdb.org/t/p/w500${props.poster}`} 
+        <img src={img} 
           alt={`${props.title} poster`}/>
       </Link>
       <div className="movie-rating">
@@ -17,7 +19,7 @@ function Movies(props) {
       </div>
       <h2>{filterTitle(props.title, props.width)}</h2>
       <div className="movie-date">
-        <span>{filterYear(props.date)}</span>
+        <span>{props.date === '' ? 'TBA' : filterYear(props.date)}</span>
       </div>
     </div>
   )

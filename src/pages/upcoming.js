@@ -1,17 +1,47 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useEffect, useContext, useState} from 'react'
 import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
 import MovieList from '../components/MovieLists/MovieList'
 import Footer from '../components/Footer/Footer'
+import Pagination from '../components/Pagination/Pagination'
 import {AppsData} from '../utils/context/appDataContext'
-import {discoverDataPage} from '../utils/apis/api'
+import {scrollTop} from '../utils/common/common'
+import {getDataPage} from '../utils/apis/api'
 
-export default function Upcoming({data}) {
+export default function Upcoming() {
   const {setActiveRoute} = useContext(AppsData)
+  const [data, setData] = useState({
+    isSet: false,
+    data: {},
+    totalpages: 10
+  })
 
   useEffect(()=>{
     setActiveRoute('Upcoming')
-  })
+    if(!data.isSet) {
+      async function gData (){
+        let a = await getDataPage('/movie/upcoming', 1)
+        setPageData(a.data)
+      }
+      gData()
+    } 
+  }, [])
+  
+
+  function setPageData (val) {
+    setData({
+      ...data,
+      isSet: true,
+      data: val,
+      totalpages: val.total_pages
+    })
+  }
+
+  async function getNewData(val){
+    let a = await getDataPage('/movie/upcoming', val)
+    setPageData(a.data)
+    scrollTop()
+  }
 
   return (
     <div className='main-container content-center'>
@@ -22,18 +52,22 @@ export default function Upcoming({data}) {
 
       <div className="main page-padding">
         <Navbar />  
-        <MovieList 
-          type='movie'
-          title={'Upcoming Movies'}
-          total={data.upcoming.total_results}
-          data={data.upcoming.results}/>
+        { Object.keys(data.data).length !== 0 ? 
+            <MovieList 
+              viewBtn={false}
+              hlink={'/upcoming'}
+              aslink={'/upcoming'}
+              type='movie'
+              title={'Upcoming Movies'}
+              total={data.data.total_results}
+              data={data.data.results}/> : null
+        }
+        <Pagination 
+          click={(val=>getNewData(val))}
+          totalpages={data.totalpages} />
         <Footer />
       </div>
     </div>
   )
 }
 
-Upcoming.getInitialProps = async () => {
-  const data = await discoverDataPage()
-  return { data }
-}

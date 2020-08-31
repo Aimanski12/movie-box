@@ -26,18 +26,27 @@ export default function Discover({data}) {
 
         <MovieList 
           type='movie'
-          title={'Popular Movies'}
-          total={data.popular.total_results}
-          data={filterData(data.popular.results)}/>
-        
-        <MovieList 
-          type='movie'
+          viewBtn={true}
+          hlink='/top-rated'
+          aslink='/top-rated'
           title={'Top-Rated Movies'}
           total={data.toprated.total_results}
           data={filterData(data.toprated.results)}/>
 
         <MovieList 
           type='movie'
+          viewBtn={true}
+          hlink='/popular'
+          aslink='/popular'
+          title={'Popular Movies'}
+          total={data.popular.total_results}
+          data={filterData(data.popular.results)}/>
+
+        <MovieList 
+          type='movie'
+          viewBtn={true}
+          hlink='/upcoming'
+          aslink='/upcoming'
           title={'Upcoming Movies'}
           total={data.upcoming.total_results}
           data={filterData(data.upcoming.results)}/>

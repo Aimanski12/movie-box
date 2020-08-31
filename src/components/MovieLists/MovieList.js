@@ -1,35 +1,35 @@
 import React, {useEffect, useState} from 'react'
 import Header from './Components/Header'
 import Movies from './Components/Movies'
-import Pagination from '../Pagination/Pagination'
+import ViewBtn from './Components/ViewBtn'
+import {findPoster} from '../../utils/common/common'
 
 function MovieList(props) {
-
   const [w, setWidth] = useState(0)
-  
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
     w === 0 ? setWidth(window.innerWidth): null
   })
-
 
   let movies = props.data.map((d, i) => {
     return (
       <Movies 
         key={i}
         width={w}
-        poster={d.poster_path}
-        title={title(d, props.type)}
+        poster={findPoster(d)}
+        title={d.title ? d.title : d.name}
         votes={d.vote_average}
-        date={date(d, props.type)} />
+        date={d.release_date ? d.release_date : 
+            d.first_air_date ? d.first_air_date : ''} />
     )
   })
-
   
   return (
     <div className='content-center movielist-container'>
       <div className="movielist-wrapper">
         <Header 
+          hlink={props.hlink}
+          aslink={props.aslink}
           title={props.title}
           total={props.total} />
 
@@ -37,14 +37,11 @@ function MovieList(props) {
           {movies}
         </div>
 
-        <Pagination />
-
-        {/* <div className='view-btn'>  
-          <Link href='/'>
-            <a className='content-center link-btn'>{`View All ${props.title}`}</a>
-          </Link>          
-        </div> */}
-
+        {props.viewBtn ? 
+          <ViewBtn 
+            title={props.title}
+            hlink={props.hlink}
+            aslink={props.aslink} /> : null }
       </div>
     </div>
   )
@@ -52,23 +49,3 @@ function MovieList(props) {
 
 export default MovieList
 
-
-function title (d, prop) {
-  if(prop === 'movie') {
-    return d.title
-  } else if (prop === 'tv-show') {
-    return d.name
-  } else if (prop === 'trending') {
-    return d.title ? d.title : d.name
-  }
-}
-
-function date(d, prop) {
-  if (prop === 'movie') {
-    return d.release_date
-  } else if(prop === 'tv-show'){
-    return d.first_air_date
-  } else if (prop === 'trending') {
-    return d.release_date ? d.release_date : d.first_air_date
-  }
-}

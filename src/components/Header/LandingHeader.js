@@ -4,6 +4,8 @@ import {filterDesc} from '../../utils/common/common'
 import Link from 'next/link'
 
 function LandingHeader(props) {
+  let img = props.poster === null ? '/image/backup-image.png' :
+    `https://image.tmdb.org/t/p/w500${props.data.poster_path}`
 
   return (
     <div className='landing-header'>
@@ -29,7 +31,7 @@ function LandingHeader(props) {
           </div>
           <div className="content-center landing-poster">
             <img 
-              src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`} 
+              src={img} 
               alt={`${props.data.title} poster cover`}/>
           </div>
         </div>

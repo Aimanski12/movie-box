@@ -1,0 +1,65 @@
+.not-found-container {
+  width: 100%;
+  height: 85vh;
+}
+
+.big-logo {
+  width: 196px;
+  height: 196px;
+}
+
+.big-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.not-found-container p {
+  color: #E1E1E1;
+  font-size: 1.5em;
+}
+
+.not-found-container .view-btn {
+  width: 220px;
+  padding: 0 15px
+}
+
+@media (max-width: 1368px){
+  .big-logo {
+    width: 175px;
+    height: 175px;
+  }
+  .not-found-container p {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 1168px) {
+  .big-logo {
+    width: 150px;
+    height: 150px;
+  }
+  .not-found-container p {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 968px) {
+  .big-logo {
+    width: 130px;
+    height: 130px;
+  }
+  .not-found-container p {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .big-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .not-found-container p {
+    font-size: 1.1em;
+  }
+}

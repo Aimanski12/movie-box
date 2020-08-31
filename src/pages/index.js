@@ -29,15 +29,21 @@ export default function Home({data}) {
 
         <MovieList 
           type='movie'
+          viewBtn={true}
+          hlink='/top-rated'
+          aslink='/top-rated'
           title={'Top-Rated Movies'}
           total={data.toprated.total_results}
           data={filterData(data.toprated.results)}/>
 
         <MovieList 
           type='movie'
+          viewBtn={true}
+          hlink='/upcoming'
+          aslink='/upcoming'
           title={'Upcoming Movies'}
           total={data.upcoming.total_results}
-          data={filterData(data.upcoming.results)}/>
+          data={filterData(data.upcoming.results)} />
 
         <Footer />
 

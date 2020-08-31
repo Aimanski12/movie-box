@@ -1,3 +1,5 @@
+import anime from 'animejs'
+
 
 // function to filter the number of text to render
 export function filterDesc (txt, width) {
@@ -35,11 +37,12 @@ function sortText(txt, num){
   return t
 }
 
-
 // function to filter the length of the title
 export function filterTitle(text, width) {
   let t;
-  if (width < 1168) {
+  if (width < 468) {
+    t = sortString(text, 13)
+  } else if (width < 1168) {
     t = sortString(text, 16)
   } else if(width < 1368) {
     t = sortString(text, 18)
@@ -74,4 +77,38 @@ export function filterData (data){
 
 export function addComma (num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
+
+export function scrollTop() {
+  const html = document.querySelector('html')
+  const body = document.querySelector('body')
+  const moveTo = window.innerHeight
+  anime({
+    targets: [html, body],
+    scrollTop: 0,
+    duration: 300,
+    easing: 'easeInSine'
+  })
+}
+
+// check if the poster has a value 
+export function findPoster(data) {
+  let poster
+  if (isTrue(data.poster_path)) {
+    if (isTrue(data.profile_path)) {
+      poster = null
+    } else {
+      poster = data.profile_path
+    }
+  } else {
+    poster = data.poster_path
+  }
+  return poster
+}
+
+function isTrue(poster) {
+  if (poster === null || poster === undefined) {
+    return true
+  }
 }

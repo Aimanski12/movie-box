@@ -1,40 +1,28 @@
-import React, {useState} from "react";
+import React from "react";
 import ReactPaginate from "react-paginate";
 // require("bootstrap/scss/bootstrap.scss");
 
-function PageNum() {
-  const {state, setActivePage} = useState({
-    // offset: 0,
-    // data: [],
-    // perPage: 5,
-    // pageCounts: 100,
-    currentPage: 0
-  })
+function PageNum(props) {
 
   function handlePageClick (e) {
     const selectedPage = e.selected;
-
-    setActiveState({
-      ...state,
-      offset: offset
-    });
+    props.click(selectedPage + 1)
   }
 
   return (
     <div className='content-center display-pagination'>
       <ReactPaginate
-        pageCount={1000}
+        pageCount={props.totalpages}
         previousLabel={"prev"}
         nextLabel={"next"}
         breakLabel={"..."}
         breakClassName={"break-me"}
         marginPagesDisplayed={1}
         pageRangeDisplayed={2}
-        onPageChange={()=>handlePageClick}
+        onPageChange={(e)=>handlePageClick(e)}
         containerClassName={"pagination"}
         subContainerClassName={"pages pagination"}
         activeClassName={"active"} />
-
     </div>
   )
 }

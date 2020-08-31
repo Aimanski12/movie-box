@@ -24,11 +24,18 @@ export default function Trending({data}) {
         <Navbar />  
         <MovieList 
           type='trending'
+          viewBtn={true}
+          hlink='/[movies]/today'
+          aslink='/trending/today'
           title={'Trending Today'}
           total={data.day.total_results}
           data={filterData(data.day.results)}/>
+          
         <MovieList 
           type='trending'
+          viewBtn={true}
+          hlink='/[movies]/this-week'
+          aslink='/trending/this-week'
           title={'Trending Week'}
           total={data.week.total_results}
           data={filterData(data.week.results)}/>
