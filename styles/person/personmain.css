@@ -1,0 +1,211 @@
+.personlist-container {
+  min-height: 400px;
+  width: 100%;
+  padding: 40px 0 0 0 ;
+  /* background: rgba(190,190,190,0.2); */
+}
+
+.personlist-wrapper {
+  min-height: 600px;
+  width: 1100px;
+  /* background: rgba(190,190,190,0.2); */
+  color: #F2F2F2;
+}
+
+.movie-list {
+  width: 100%;
+}
+
+.person-header {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.person-header span {
+  font-weight: 400;
+  color: yellow;
+  transition: all 0.2s ease-in
+}
+
+.person-header span:hover {
+  cursor: pointer;
+  color: #B2B216;
+  transition: all 0.2s ease-in
+}
+
+
+.person {
+  width: 190px;
+  height: 320px;
+  margin: 10px 15px 15px 15px;
+  display: inline-block;
+  /* background: rgba(190, 190, 190, 0.2); */
+}
+
+.person img {
+  width: 100%;
+  height: 285px;
+  border-radius: 3px;
+  transition: all 0.15s ease-in;
+}
+
+.person img:hover {
+  cursor: pointer;  
+  opacity: 0.7;
+  transition: all 0.15s ease-in;
+}
+
+.person h2 {
+  margin-top: 5px;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #DEDEDE
+}
+
+.view-btn {
+  width: 270px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+@media (max-width: 1368px){
+  .personlist-wrapper {
+    width: 1000px;
+  }
+  .person {
+    width: 170px;
+    height: 290px;
+  }
+  .person img {
+    height: 255px;
+  }
+  .view-btn {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1168px) {
+  .personlist-wrapper {
+    width: 850px;
+  }
+  .person {
+    width: 155px;
+    height: 280px;
+    margin: 10px 7.5px 10px 7.5px;
+  }
+  .person img {
+    height: 233px;
+  }
+  .person h2 {
+    font-size: 0.85em;
+  }
+  .view-btn {
+    width: 270px;
+  }
+}
+
+@media (max-width: 968px) {
+  .personlist-wrapper {
+    width: 700px;
+  }
+  .person {
+    width: 160px;
+  }
+  .person img {
+    height: 240px;
+  }
+  .view-btn {
+    width: 260px;
+  }
+  .person-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .person-header span {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 768px) {
+  .personlist-wrapper {
+    width: 600px;
+  }
+  .person {
+    width: 135px;
+    height: 240px;
+  }
+  .person img {
+    height: 202px;
+  }
+  .person h2 {
+    font-size: 0.8em;
+  }
+  .view-btn {
+    width: 250px;
+  }
+}
+
+@media (max-width: 668px) {
+  .personlist-wrapper {
+    width: 480px;
+  }
+  .person {
+    width: 220px;
+    height: 370px;
+    margin: 10px 10px 10px 10px;
+  }
+  .person img {
+    height: 330px;
+  }
+  .person h2 {
+    font-size: 0.9em;
+  }
+}
+
+
+
+@media (max-width: 568px) {
+  .personlist-wrapper {
+    width: 380px;
+  }
+  .person {
+    width: 175px;
+    height: 300px;
+    margin: 10px 7.5px 10px 7.5px;
+  }
+  .person img {
+    height: 263px;
+  }
+  .person h2 {
+    font-size: 0.85em;
+  }
+  .person-header {
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  .person-header span {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 468px) {
+  .personlist-wrapper {
+    width: 290px;
+  }
+  .person {
+    width: 130px;
+    height: 230px;
+    margin: 10px 7.5px 10px 7.5px;
+  }
+  .person img {
+    height: 195px;
+  }
+  .person h2 {
+    font-size: 0.85em;
+  }
+}
+
+
+
+
+

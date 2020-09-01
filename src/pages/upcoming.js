@@ -5,41 +5,28 @@ import MovieList from '../components/MovieLists/MovieList'
 import Footer from '../components/Footer/Footer'
 import Pagination from '../components/Pagination/Pagination'
 import {AppsData} from '../utils/context/appDataContext'
-import {scrollTop} from '../utils/common/common'
+import {scrollTop, spd, initData} from '../utils/common/common'
 import {getDataPage} from '../utils/apis/api'
 
 export default function Upcoming() {
   const {setActiveRoute} = useContext(AppsData)
-  const [data, setData] = useState({
-    isSet: false,
-    data: {},
-    totalpages: 10
-  })
+  const [data, setData] = useState(initData)
 
   useEffect(()=>{
     setActiveRoute('Upcoming')
     if(!data.isSet) {
       async function gData (){
         let a = await getDataPage('/movie/upcoming', 1)
-        setPageData(a.data)
+        setData(spd(a.data, data))
       }
       gData()
     } 
   }, [])
   
 
-  function setPageData (val) {
-    setData({
-      ...data,
-      isSet: true,
-      data: val,
-      totalpages: val.total_pages
-    })
-  }
-
   async function getNewData(val){
     let a = await getDataPage('/movie/upcoming', val)
-    setPageData(a.data)
+    setData( spd(a.data, data) )
     scrollTop()
   }
 
@@ -55,13 +42,13 @@ export default function Upcoming() {
         { Object.keys(data.data).length !== 0 ? 
             <MovieList 
               viewBtn={false}
-              hlink={'/upcoming'}
-              aslink={'/upcoming'}
+              hlink='/upcoming'
+              aslink='/upcoming'
+              link='/upcoming/movies'
               type='movie'
               title={'Upcoming Movies'}
               total={data.data.total_results}
-              data={data.data.results}/> : null
-        }
+              data={data.data.results}/> : null }
         <Pagination 
           click={(val=>getNewData(val))}
           totalpages={data.totalpages} />

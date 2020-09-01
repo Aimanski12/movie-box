@@ -5,40 +5,27 @@ import MovieList from '../components/MovieLists/MovieList'
 import Footer from '../components/Footer/Footer'
 import Pagination from '../components/Pagination/Pagination'
 import {AppsData} from '../utils/context/appDataContext'
-import {scrollTop} from '../utils/common/common'
+import {scrollTop, spd, initData} from '../utils/common/common'
 import {getDataPage} from '../utils/apis/api'
 
 export default function TopRated() {
   const {setActiveRoute} = useContext(AppsData)
-  const [data, setData] = useState({
-    isSet: false,
-    data: {},
-    totalpages: 10
-  })
+  const [data, setData] = useState(initData)
 
   useEffect(()=>{
     setActiveRoute('Top Rated')
     if(!data.isSet) {
       async function gData (){
         let a = await getDataPage('/movie/top_rated', 1)
-        setPageData(a.data)
+        setData( spd(a.data, data))
       }
       gData()
     } 
   },[])
 
-  function setPageData (val) {
-    setData({
-      ...data,
-      isSet: true,
-      data: val,
-      totalpages: val.total_pages
-    })
-  }
-
   async function getNewData(val){
     let a = await getDataPage('/movie/top_rated', val)
-    setPageData(a.data)
+    setData( spd(a.data, data))
     scrollTop()
   } 
 
@@ -57,6 +44,7 @@ export default function TopRated() {
               viewBtn={false}
               hlink='/top-rated'
               aslink='/top-rated'
+              link='/top-rated/movies'
               type='movie'
               title={'Top Rated Movies'}
               total={data.data.total_results}

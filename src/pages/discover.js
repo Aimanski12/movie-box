@@ -29,6 +29,7 @@ export default function Discover({data}) {
           viewBtn={true}
           hlink='/top-rated'
           aslink='/top-rated'
+          link='/top-rated/movies'
           title={'Top-Rated Movies'}
           total={data.toprated.total_results}
           data={filterData(data.toprated.results)}/>
@@ -38,6 +39,7 @@ export default function Discover({data}) {
           viewBtn={true}
           hlink='/popular'
           aslink='/popular'
+          link='/popular/movies'
           title={'Popular Movies'}
           total={data.popular.total_results}
           data={filterData(data.popular.results)}/>
@@ -47,6 +49,7 @@ export default function Discover({data}) {
           viewBtn={true}
           hlink='/upcoming'
           aslink='/upcoming'
+          link='/upcoming/movies'
           title={'Upcoming Movies'}
           total={data.upcoming.total_results}
           data={filterData(data.upcoming.results)}/>

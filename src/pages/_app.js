@@ -31,6 +31,12 @@ import '../../styles/genre/genre.css'
 // not found
 import '../../styles/notfound/notfound.css'
 
+// person 
+import '../../styles/person/personmain.css'
+
+// movie css
+import '../../styles/movie/header.css'
+
 import {AppsDataContext} from '../utils/context/appDataContext'
 
 function MyApp({ Component, pageProps, router }) {

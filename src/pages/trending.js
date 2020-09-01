@@ -27,6 +27,7 @@ export default function Trending({data}) {
           viewBtn={true}
           hlink='/[movies]/today'
           aslink='/trending/today'
+          link='/trending/today'
           title={'Trending Today'}
           total={data.day.total_results}
           data={filterData(data.day.results)}/>
@@ -36,6 +37,7 @@ export default function Trending({data}) {
           viewBtn={true}
           hlink='/[movies]/this-week'
           aslink='/trending/this-week'
+          link='/trending/this-week'
           title={'Trending Week'}
           total={data.week.total_results}
           data={filterData(data.week.results)}/>

@@ -16,6 +16,8 @@ function MovieList(props) {
       <Movies 
         key={i}
         width={w}
+        id={d.id}
+        link={props.link}
         poster={findPoster(d)}
         title={d.title ? d.title : d.name}
         votes={d.vote_average}

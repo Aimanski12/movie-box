@@ -112,3 +112,22 @@ function isTrue(poster) {
     return true
   }
 }
+
+//function to set the state to the new data
+export function spd(val, data) {
+  return ({
+    ...data,
+    isSet: true,
+    data: val,
+    totalpages: val.total_pages
+  })
+}
+
+// init data
+export const initData = {
+  isSet: false,
+  data: {},
+  totalpages: 10,
+  genre: 28,
+  link: 'action'
+}

@@ -4,12 +4,14 @@ import Star from '../../Svgs/Svgs/Star'
 import {filterTitle, filterYear} from '../../../utils/common/common'
 
 function Movies(props) {
-  
   let img = props.poster === null ? '/image/backup-image.png' : 
     `https://image.tmdb.org/t/p/w500${props.poster}`
+
   return (
      <div className="movie">
-      <Link href='/' as='/'>
+      <Link 
+        href='/[movies]/[movie]/[movie-id]' 
+        as={`${props.link}/${props.id}`}>
         <img src={img} 
           alt={`${props.title} poster`}/>
       </Link>
@@ -26,3 +28,13 @@ function Movies(props) {
 }
 
 export default Movies
+
+function setText (txt) {
+  let b = txt.split(' ').map(c => {
+    return c.toLocaleLowerCase()
+  })
+  return b.join('-')
+
+}
+
+
