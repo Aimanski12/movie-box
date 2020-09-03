@@ -1,5 +1,4 @@
 import genre from './genre.json'
-import { data } from 'jquery'
 
 // validate if both of the queries are valid
 export function checkifvalid (query) {

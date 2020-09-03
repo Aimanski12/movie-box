@@ -24,9 +24,6 @@ export default function Genre() {
         <GenreHeader />
         <Footer />
       </div>
-
-
-
     </div>
   )
 }

@@ -18,9 +18,9 @@ export function filterDesc (txt, width) {
     t = sortText(txt, 45)
   } else if (width < 968) {
     t = sortText(txt, 50)
-  } else {
-    t = txt
-  }
+  } else if (width >= 968 ) {
+    t = sortText(txt, 51)
+  } 
   return t
 }
 
@@ -130,4 +130,10 @@ export const initData = {
   totalpages: 10,
   genre: 28,
   link: 'action'
+}
+
+export function modalEl (){
+  const modal = document.querySelector('.detail-modal')
+  const vid = document.querySelector('.detail-modal iframe')
+  return {modal, vid}
 }

@@ -10,7 +10,7 @@ function Movies(props) {
   return (
      <div className="movie">
       <Link 
-        href='/[movies]/[movie]/[movie-id]' 
+        href='/[movies]/[movie]/[_id]' 
         as={`${props.link}/${props.id}`}>
         <img src={img} 
           alt={`${props.title} poster`}/>

@@ -1,0 +1,51 @@
+.back {
+  width: 1100px;
+}
+
+.back span {
+  float: left;
+  background: rgba(190,190,190,0.2);
+  color: rgba(230,230,230,0.6)
+}
+
+.back span:hover {
+  background: rgba(190, 190, 190, 0.1);
+  color: rgba(230, 230, 230, 0.8)
+}
+
+@media (max-width: 1468px) {
+  .back {
+    width: 1000px;
+  }
+}
+
+@media (max-width: 1268px) {
+  .back {
+    width: 900px;
+  }
+}
+
+@media (max-width: 968px) {
+  .back {
+    width: 800px;
+  }
+}
+
+@media (max-width: 868px) {
+  .back {
+    width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .back {
+    width: 600px;
+  }
+}
+
+@media (max-width: 668px) {
+  .back {
+    width: 500px;
+    display: none;
+  }
+}

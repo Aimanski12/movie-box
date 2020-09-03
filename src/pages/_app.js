@@ -35,7 +35,12 @@ import '../../styles/notfound/notfound.css'
 import '../../styles/person/personmain.css'
 
 // movie css
-import '../../styles/movie/header.css'
+import '../../styles/detail/header.css'
+import '../../styles/detail/back.css'
+import '../../styles/detail/itemdetails.css'
+import '../../styles/detail/item-img.css'
+import '../../styles/detail/item-stats.css'
+import '../../styles/detail/poster.css'
 
 import {AppsDataContext} from '../utils/context/appDataContext'
 

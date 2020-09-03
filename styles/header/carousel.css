@@ -1,11 +1,11 @@
 .header {
   width: 100%;
-  height: 95vh;
+  height: 100vh;
   margin: 0px auto;
 }
 .carousel {
   width: 100%;
-  height: 95vh;
+  height: 100vh;
   display: flex;
   justify-content: flex-start;
   overflow: hidden;
@@ -14,7 +14,7 @@
 
 .slider {
   display: flex;
-  height: 95vh;
+  height: 100vh;
   width: 500%;
   flex-shrink: 0;
   transition: all 0.5s;

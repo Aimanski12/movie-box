@@ -1,0 +1,292 @@
+.item-stats {
+  /* background: rgba(190,190,190,0.1); */
+  width: 30%;
+  min-height: 100vh;
+  float: right;
+  margin-bottom: 50px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.item-stats-wrapper {
+  margin-top: 50px;
+  color: #F2F2F2;
+}
+
+.stat-wrapper {
+  width: 100%;
+  min-height: 60px;
+  /* background: rgba(190,190,190,0.1); */
+  margin: 0 0 30px 5px
+}
+
+.stat-wrapper span {
+  display: block;
+}
+
+.stat-header {
+  color: #9A9A9A;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.stat-desc {
+  color: #80D2DD;
+  font-size: 0.9em;
+}
+
+.stat-desc svg {
+  width: 17px;
+}
+
+
+@media (max-width: 1268px){
+  .item-stats-wrapper {
+    margin-left: 20px;
+  }
+}
+
+
+@media (max-width: 1068px) {
+  .item-stats {
+    width: 100%;
+    min-height: 400px;
+    float: left;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .item-stats-wrapper {
+    width: 850px;
+    margin-left: 0;
+
+  }
+  
+  .item-stats-wrapper .person-header {
+    display: block;
+    
+  }
+  
+  .stat-wrapper {
+    padding-left: 10px;
+    background: rgba(190,190,190,0.05);
+    width: 33.33%;
+    float: left;
+    margin: 0 0 30px 0px;
+
+    min-height: 60px;
+  }
+
+  .stat-wrapper span {
+  
+    display: block;
+  }
+
+}
+
+@media (max-width: 968px) {
+
+  .item-stats {
+  
+    width: 100%;
+    min-height: 400px;
+    float: left;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .item-stats-wrapper {
+    width: 700px;
+    
+    margin-left: 0;
+  }
+
+  .item-stats-wrapper .person-header {
+    
+    display: block;
+  }
+
+  .stat-wrapper {
+    width: 50%;
+    
+    padding-left: 10px;
+    background: rgba(190, 190, 190, 0.05);
+    float: left;
+    margin: 0 0 30px 0px;
+    min-height: 60px;
+  }
+
+  .stat-wrapper span {
+
+    display: block;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .item-stats {
+
+    width: 100%;
+    min-height: 400px;
+    float: left;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .item-stats-wrapper {
+    width: 600px;
+
+    margin-left: 0;
+  }
+
+  .item-stats-wrapper .person-header {
+
+    display: block;
+  }
+
+  .stat-wrapper {
+    
+    width: 50%;
+    padding-left: 10px;
+    background: rgba(190, 190, 190, 0.05);
+    float: left;
+    margin: 0 0 30px 0px;
+    min-height: 60px;
+  }
+
+  .stat-wrapper span {
+
+    display: block;
+  }
+
+}
+
+@media (max-width: 668px) {
+
+  .item-stats {
+
+    width: 100%;
+    min-height: 400px;
+    float: left;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .item-stats-wrapper {
+    width: 480px;
+
+    margin-left: 0;
+  }
+
+  .item-stats-wrapper .person-header {
+
+    display: block;
+  }
+
+  .stat-wrapper {
+    width: 100%;
+
+    padding-left: 10px;
+    background: rgba(190, 190, 190, 0.05);
+    float: left;
+    margin: 0 0 30px 0px;
+    min-height: 60px;
+  }
+
+  .stat-wrapper span {
+
+    display: block;
+  }
+
+}
+
+@media (max-width: 568px) {
+
+  .item-stats {
+
+    width: 100%;
+    min-height: 400px;
+    float: left;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .item-stats-wrapper {
+    width: 380px;
+
+    margin-left: 0;
+  }
+
+  .item-stats-wrapper .person-header {
+
+    display: block;
+  }
+
+  .stat-wrapper {
+    width: 100%;
+
+    padding-left: 10px;
+    background: rgba(190, 190, 190, 0.05);
+    float: left;
+    margin: 0 0 30px 0px;
+    min-height: 60px;
+  }
+
+  .stat-wrapper span {
+
+    display: block;
+  }
+
+}
+
+@media (max-width: 468px) {
+
+  .item-stats {
+
+    width: 100%;
+    min-height: 400px;
+    float: left;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .item-stats-wrapper {
+    width: 290px;
+
+    margin-left: 0;
+  }
+
+  .item-stats-wrapper .person-header {
+
+    display: block;
+  }
+
+  .stat-wrapper {
+    width: 100%;
+
+    padding-left: 10px;
+    background: rgba(190, 190, 190, 0.05);
+    float: left;
+    margin: 0 0 30px 0px;
+    min-height: 60px;
+  }
+
+  .stat-wrapper span {
+
+    display: block;
+  }
+
+}
