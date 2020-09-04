@@ -1,58 +1,25 @@
 import React from 'react'
-import Link from 'next/link'
+import {filterData} from '../../../utils/common/common'
 
-function Poster() {
+function Poster(props) {
+  let posters = filterData(props.posters.posters)
+
+  let img = posters.map((p, i) => {
+    return(
+      <div className="movie">
+        <img src={`https://image.tmdb.org/t/p/w500${p.file_path}`} alt='' />
+        <span className='download'>Download</span>
+      </div>
+    )
+  })  
+
   return (
     <section className='content-center poster-wrapper'>
       <div className="poster-container">
-
         <div className="content-center person-header">
           <h1 className="name-label">Movie Posters</h1>
         </div>
-
-
-
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-        <div className="movie">
-          <img src='https://image.tmdb.org/t/p/w500/oB3LX9C3FbJvPtrk1J7qHQKvzLr.jpg' alt='' />
-          <span className='download'>Download</span>
-        </div>
-
+        {img}
       </div>
     </section>
   )

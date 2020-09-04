@@ -59,10 +59,10 @@ export default function Genre() {
 
   async function getNewData(val){
     let a = await findGenre(data.genre, val)
-    setPageData(a.data, data.genre)
+    setPageData(a.data, data.genre, data.link)
     scrollTop()
   } 
-
+  
   return (
     <div className='main-container content-center'>
       <Head>

@@ -133,7 +133,16 @@ export const initData = {
 }
 
 export function modalEl (){
+  let vid, hasVid;
   const modal = document.querySelector('.detail-modal')
-  const vid = document.querySelector('.detail-modal iframe')
-  return {modal, vid}
+  const iframe = document.querySelector('.detail-modal iframe')
+  const mod = document.querySelector('.detail-modal .modal')
+  if(iframe === null) {
+    vid = mod,
+    hasVid = false
+  } else {
+    vid = iframe
+    hasVid = true
+  }
+  return {modal, vid, hasVid}
 }

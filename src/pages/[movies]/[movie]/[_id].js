@@ -18,40 +18,26 @@ export default function MovieId() {
     setActiveRoute('Movie Indvl')
     const query = router.query
     const path = window.location.pathname
+    const valid = checkifvalid(query, path)
 
-    let valid = checkifvalid(query, path)
-    // console.log(valid)
     if(!valid.isTrue) {
       router.replace('/404', window.location.pathname)
     } else {
       if (!data.isSet) {
         async function gData() {
-          let a = await findVideo(valid.route, valid._id)
-        }
-        gData()
+          let movie = await findVideo(valid.route, valid._id)
+          if(!movie.data) {
+            router.replace('/404', window.location.pathname)
+          } else {
+            setData(movie)            
+          }
+        } gData()
       }
     }
-
-
-
-
   }, [])
-
-  function setPageData(val, id, link) {
-    setData({
-      ...data,
-      isSet: true,
-      data: val,
-      genre: id,
-      link,
-      totalpages: val.total_pages
-    })
-  }
-  
 
   return (
     <div className='main-container content-center'>
-
       <Head>
         <title>Movie Box | Movie Details</title>
         <link rel="icon" href="/image/favicon.ico" />
@@ -60,7 +46,8 @@ export default function MovieId() {
 
       <div className="main">
         <Navbar />  
-        <Movie />
+        <Movie 
+          data={data}/>
         <Footer />
       </div>
 

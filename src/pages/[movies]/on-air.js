@@ -44,7 +44,7 @@ export default function OnAir() {
               viewBtn={false}
               hlink='/[movies]/on-air'
               aslink='/tv-shows/on-air'
-              aslink='/tv-shows/on-air'
+              link='/tv-shows/on-air'
               type='tv-show'
               title={'On-Air Shows'}
               total={data.data.total_results}

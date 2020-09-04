@@ -24,7 +24,9 @@ function LandingHeader(props) {
               </p>
               <p className='short-desc'>
                 {filterDesc(props.data.overview, props.width)}</p>
-              <Link href='/'>
+              <Link 
+                href='/[movies]/[movie]/[_id]' 
+                as={`/popular/movies/${props.data.id}`}>
                 <a className='content-center link-btn'>View More</a>
               </Link>
             </div>
