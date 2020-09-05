@@ -12,10 +12,13 @@ function main(props) {
 
   let data = props.data.results
   let people = data.map((r, i) => {
+    console.log(r)
     return (
       <Fade key={i}>
         <div className="person">
-          <Link href='/' as='/'>
+          <Link 
+            href='/people/person/[_id]' 
+            as={`/people/person/${r.id}`}>
             <img 
               src={r.profile_path === null ? '/image/backup-image.png' : `https://image.tmdb.org/t/p/w500${r.profile_path}`} 
               alt={r.profile_path === null ? 'back-up poster' : `${r.name} poster`}/>

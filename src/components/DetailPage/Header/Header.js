@@ -12,8 +12,10 @@ function Header(props) {
   return (
     <header className='detail-page-header'>
       <div className="img-backer">
-        <img src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`} 
-          alt={`${data.title} backdrop`}/>
+        <img src={data.backdrop_path ? 
+          `https://image.tmdb.org/t/p/original${data.backdrop_path}` : 
+            '/image/backup-movie.png'} 
+          alt={`${data.title ? data.title : data.name} backdrop`}/>
       </div>
       <div className="content-center detail-page-wrapper">
         <div className="back">
@@ -23,10 +25,12 @@ function Header(props) {
         </div>
         <div className="content-center detail-desc-wrapper">
           <div className="item-img-cont">
-            <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt=""/>
+            <img src={data.poster_path ? 
+              `https://image.tmdb.org/t/p/w500${data.poster_path}` : '/image/backup-image.png'} 
+              alt={`${data.title ? data.title : data.name} poster`}/>
           </div>
           <div className="content-center item-decs-cont">
-            <h1 className='name-label'>{data.title}</h1>
+            <h1 className='name-label'>{data.title ? data.title : data.name}</h1>
             <p className='rating'>
               Rating &nbsp; {data.vote_average} &nbsp; <Star />
             </p>

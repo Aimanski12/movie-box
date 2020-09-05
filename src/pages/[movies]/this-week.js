@@ -25,9 +25,11 @@ export default function ThisWeek() {
 
   async function getNewData(val){
     let a = await getDataPage('/trending/all/week', val)
-    setData( spd(a.data, data))
+    setData(spd(a.data, data))
     scrollTop()
   } 
+
+
 
   return (
     <div className='main-container content-center'>

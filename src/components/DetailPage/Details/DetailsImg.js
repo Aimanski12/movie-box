@@ -14,24 +14,21 @@ function DetailsImg(props) {
             <img src={d.profile_path === null ? '/image/backup-image.png' : `https://image.tmdb.org/t/p/w500${d.profile_path}`}  alt={`${d.name} poster`}/>
           </Link>
           <h2>{filterTitle(d.name, props.width)}</h2>
-          <span className='mName'>{filterTitle(d.character, props.width)}</span>
+          <span className='mName'>{
+            d.character === '' ? 'Not given' : d.character === null ? 'Not given' :
+            filterTitle(d.character, props.width)}</span>
         </div>
       </Fade>)
   })
 
-
-
   return (
     <div className="content-center item-img">
       <div className="item-img-wrapper">
-
-
         <div className="content-center person-header">
-          <h1 className="name-label">Movie Casts</h1>
+          <h1 className="name-label">{
+            data.length > 0 ? 'Movie Casts' : 'No Casts Given'}</h1>
         </div>
-        {cast}
-
-
+        {data.length > 0 ? cast : null }
       </div>
     </div>
   )

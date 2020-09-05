@@ -45,14 +45,32 @@ export async function findGenre (id, page) {
 
 // function for fetch video details
 export async function findVideo (page, id) {
-  const route = `${page}/${id}`
-  const details = await requestData(findUrl(route, 'details'))
+  let route = `${page}/${id}`
+
+  let details = await requestData(findUrl(route, 'details'))
+  if(!details){
+    if(page === '/movie') {
+      route = `/tv/${id}`
+      details = await requestData(findUrl(route, 'details'))
+    } else {
+      route = `/movie/${id}`
+      details = await requestData(findUrl(route, 'details'))
+    }
+  }
   const posters = await requestData(findUrl(route, 'posters'))
   const video = await requestData(findUrl(route, 'video'))
   const cast = await requestData(findUrl(route, 'cast'))
   const keywords = await requestData(findUrl(route, 'keyW'))
+  const similar = await requestData(findUrl(route, 'sim'))
+  const pUrl = page
 
   // filter the return calue
-  return filterData(details, posters, video, cast, keywords)
+  return filterData(details, posters, video, cast, keywords, similar, pUrl)
   
+}
+
+
+export async function findPerson(id) {
+  const details = await requestData(findUrl(`/person/${id}`, 'pdetails'))
+  return {details}
 }

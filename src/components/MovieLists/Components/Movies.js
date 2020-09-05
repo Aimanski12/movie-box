@@ -29,12 +29,12 @@ function Movies(props) {
 
 export default Movies
 
-function setText (txt) {
-  let b = txt.split(' ').map(c => {
-    return c.toLocaleLowerCase()
-  })
-  return b.join('-')
+// function setText (txt) {
+//   let b = txt.split(' ').map(c => {
+//     return c.toLocaleLowerCase()
+//   })
+//   return b.join('-')
 
-}
+// }
 
 

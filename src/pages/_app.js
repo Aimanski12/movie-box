@@ -33,6 +33,7 @@ import '../../styles/notfound/notfound.css'
 
 // person 
 import '../../styles/person/personmain.css'
+import '../../styles/person/person.css'
 
 // movie css
 import '../../styles/detail/header.css'

@@ -17,7 +17,7 @@ function MovieList(props) {
         key={i}
         width={w}
         id={d.id}
-        link={props.link}
+        link={d.media_type ? '/tv-shows/popular' : props.link}
         poster={findPoster(d)}
         title={d.title ? d.title : d.name}
         votes={d.vote_average}

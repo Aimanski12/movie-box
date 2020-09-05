@@ -6,9 +6,10 @@ function Header(props) {
   return (
     <div className="content-center movie-header">
       <h1 className="name-label">{props.title}</h1>
-      <Link href={props.hlink} as={props.aslink}>
-        <span>{`${addComma(props.total)} Movies`}</span>
-      </Link>
+      {props.total ? 
+        <Link href={props.hlink} as={props.aslink}>
+          <span>{`${addComma(props.total)} Movies`}</span>
+        </Link> : null }
     </div>
   )
 }

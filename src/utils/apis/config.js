@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 const url = 'https://api.themoviedb.org/3'
-const api = 'f79c1f33b89b8f1e137114c46a4df913'
+const api = 'api_key=f79c1f33b89b8f1e137114c46a4df913'
 const lang = 'language=en-US'
 
 export async function fetchdata(route, page, genre) {
   let tmdbUrl = genre === true ?
-    `${url}/discover/movie?api_key=${api}&${lang}&include_adult=false&include_video=false&page=${page}&with_genres=${route}` :
-    `${url}${route}?api_key=${api}&${lang}&page=${page}`
+    `${url}/discover/movie?${api}&${lang}&include_adult=false&include_video=false&page=${page}&with_genres=${route}` :
+    `${url}${route}?${api}&${lang}&page=${page}`
 
   return await requestData(tmdbUrl)
 }
@@ -19,7 +19,7 @@ export async function requestData(url) {
       data = res.data
     })
     .catch(err => {
-      console.log(err)
+      data = false
     })
   return await data
 }
@@ -27,20 +27,24 @@ export async function requestData(url) {
 
 export function findUrl(r, l) {
   if (l === 'details') {
-    return `${url}${r}?api_key=${api}&${lang}`
+    return `${url}${r}?${api}&${lang}`
   } else if (l === 'posters') {
-    return `${url}${r}/images?api_key=${api}&${lang}&include_image_language=en,null&poster_path=en,null`
+    return `${url}${r}/images?${api}&${lang}&include_image_language=en,null&poster_path=en,null`
   } else if (l === 'video') {
-    return `${url}${r}/videos?api_key=${api}&${lang}`
+    return `${url}${r}/videos?${api}&${lang}`
   } else if (l === 'cast') {
-    return `${url}${r}/credits?api_key=${api}`
+    return `${url}${r}/credits?${api}`
   } else if (l === 'keyW') {
-    return `${url}${r}/keywords?api_key=${api}`
+    return `${url}${r}/keywords?${api}`
+  } else if (l === 'sim'){
+    return `${url}${r}/similar?${api}&language=en-US&page=1`
+  } else if (l === 'pdetails') {
+    return `${url}${r}?${api}&language=en-US`
   }
 }
 
 
-export function filterData (details, posters, video, cast, keywords) {
+export function filterData (details, posters, video, cast, keywords, similar, pUrl) {
   if(isUn(details) && isUn(posters) && isUn(video) && isUn(cast) && isUn(keywords)) {
     return {data: false}
   } else {
@@ -50,7 +54,9 @@ export function filterData (details, posters, video, cast, keywords) {
       posters, 
       video, 
       cast,
-      keywords
+      keywords,
+      similar,
+      pUrl
     }
   }
 }
@@ -62,3 +68,4 @@ function isUn (val) {
     false
   }
 }
+

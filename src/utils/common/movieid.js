@@ -5,6 +5,7 @@ import {addComma} from './common'
 export function checkifvalid (query, path) {
   let routeUrl = ["tv-shows", "trending", "discover", "popular", "top-rated", "upcoming", "popular", "top-rated", "upcoming", "people", "genre", "movies", "popular", "on-air", "today", "this-week"]
   let wpath = path.split('/')
+  // console.log(query, wpath)
 
   if(Object.keys(query).length > 0){
     let page = isValidUrl(query.movies, routeUrl)
@@ -69,8 +70,12 @@ export function getFigure (val) {
 // function to format text into a regular one line with space
 export function formatText (val) {
   let text = '';
-  for (let x = 0; x < val.length; x++){
-    text += val[x].name === '' ? 'Not Given' :`${val[x].name} `
+  if(val.length < 1){
+    text = 'Not Given'
+  } else {
+    for (let x = 0; x < val.length; x++){
+      text += val[x].name === '' ? 'Not Given' :`${val[x].name} `
+    }
   }
   return text
 }
@@ -106,6 +111,8 @@ export function prodCountries(pc1, pc2) {
 
 export function producers (val) {
   if(!val || val === undefined || val === null) {
+    return <span className="stat-desc">Not given</span>
+  } else if(val.length < 1) {
     return <span className="stat-desc">Not given</span>
   } else {
     return val.map((p, i) => {
