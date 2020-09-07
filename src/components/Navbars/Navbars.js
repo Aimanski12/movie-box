@@ -3,7 +3,8 @@ import Logo from './components/Logo'
 import Menulists from './components/Menulists'
 import Search from './components/Search'
 import {scroll} from '../../utils/animation/navbar/scroll'
-function Navbars() {
+
+function Navbars(props) {
 
   const [menu, setMenu] = useState('close')
   const [search, setSearch] = useState('close')
@@ -30,6 +31,8 @@ function Navbars() {
           isOpen={menu}
           menuBarClick={(val)=>click('menu', val)}/>
         <Search 
+          onSearchPage={props.onSearchPage}
+          click={(val)=>{props.click(val)}}
           isOpen={search}
           searchBarClick={(val)=>click('search', val)} />
       </nav>

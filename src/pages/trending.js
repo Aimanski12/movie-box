@@ -21,7 +21,8 @@ export default function Trending({data}) {
       </Head>
 
       <div className="main page-padding">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
         <MovieList 
           type='trending'
           viewBtn={true}

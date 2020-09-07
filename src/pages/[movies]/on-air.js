@@ -38,7 +38,8 @@ export default function OnAir() {
       </Head>
 
       <div className="main page-padding">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
         { Object.keys(data.data).length !== 0 ? 
             <MovieList 
               viewBtn={false}

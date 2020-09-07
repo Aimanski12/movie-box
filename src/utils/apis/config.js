@@ -40,6 +40,22 @@ export function findUrl(r, l) {
     return `${url}${r}/similar?${api}&language=en-US&page=1`
   } else if (l === 'pdetails') {
     return `${url}${r}?${api}&language=en-US`
+  } else if(l === 'pmovies'){
+    return `${url}${r}?${api}&${lang}`
+  } else if(l === 'pposters') {
+    return `${url}${r}?${api}`
+  } 
+}
+
+
+export function searchUrl (r, p, url){
+  const ad = '&include_adult=true'
+  if(url === 'movie') {
+    return `${url}/search/movie?${api}&${lang}&query=${r}&page=${p}${ad}`
+  } else if (url === 'tvshow') {
+    return `${url}/search/tv?${api}&${lang}&page=${p}&query=${r}${ad}`
+  } else {
+    return `${url}/search/person?${api}&${lang}&query=${r}&page=${p}${ad}`
   }
 }
 
@@ -58,6 +74,14 @@ export function filterData (details, posters, video, cast, keywords, similar, pU
       similar,
       pUrl
     }
+  }
+}
+
+export function hasVal (details, movies, posters) {
+  if(isUn(details) && isUn(movies) && isUn(posters)) {
+    return {data: false}
+  } else {
+    return {details, movies, posters}
   }
 }
 

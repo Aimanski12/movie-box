@@ -22,7 +22,8 @@ export default function Discover({data}) {
       </Head>
 
       <div className="main page-padding">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
 
         <MovieList 
           type='movie'

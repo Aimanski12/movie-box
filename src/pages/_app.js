@@ -43,6 +43,12 @@ import '../../styles/detail/item-img.css'
 import '../../styles/detail/item-stats.css'
 import '../../styles/detail/poster.css'
 
+// search css
+import '../../styles/search/header.css'
+import '../../styles/search/breadcrumbs.css'
+import '../../styles/search/noresult.css'
+import '../../styles/search/itemsresult.css'
+
 import {AppsDataContext} from '../utils/context/appDataContext'
 
 function MyApp({ Component, pageProps, router }) {

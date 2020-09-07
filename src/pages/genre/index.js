@@ -20,7 +20,8 @@ export default function Genre() {
       </Head>
 
       <div className="main">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
         <GenreHeader />
         <Footer />
       </div>

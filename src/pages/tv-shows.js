@@ -22,7 +22,8 @@ export default function TvShows({data}) {
       </Head>
 
       <div className="main page-padding main-bkg">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
 
         <MovieList 
           type='tv-show'

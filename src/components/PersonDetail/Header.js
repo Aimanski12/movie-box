@@ -1,16 +1,15 @@
 import React from 'react'
 import Modal from './Modal'
 import {filterDesc} from '../../utils/common/common'
+import {showmodal} from '../../utils/animation/detail/personmodal'
 import {useRouter} from 'next/router'
 
 function Header(props) {
   const data = props.details
   const router = useRouter()
-  
-  console.log(data)
 
   return (
-    <header className='detail-page-header'>
+    <header className='detail-page-header person-bio'>
       <div className="img-backer">
         <img src={'/image/red-carpet.png'} 
           alt={`asdf backdrop`}/>
@@ -30,15 +29,16 @@ function Header(props) {
             <h1 className='name-label'>{data.name}</h1>
             <p className='rating'>Short Life Bio</p>
             <p className='short-desc'>
-              {filterDesc(data.biography, props.width)}</p>
+              {data.biography === '' ? 'Not given' : 
+                filterDesc(data.biography, props.width)}</p>
             <span 
               className='content-center link-btn'
-              onClick={()=>{}}>View Full Bio</span>
+              onClick={()=>showmodal(props.width)}>View Full Bio</span>
           </div>
         </div>
       </div>
-
-      <Modal />
+      
+      <Modal bio={data.biography}/>
     </header>
   )
 }

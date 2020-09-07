@@ -19,7 +19,6 @@ export default function MovieId() {
     const query = router.query
     const path = window.location.pathname
     const valid = checkifvalid(query, path)
-
     if(!valid.isTrue) {
       router.replace('/404', window.location.pathname)
     } else {
@@ -45,7 +44,8 @@ export default function MovieId() {
       </Head>
 
       <div className="main">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
         <Movie 
           data={data}/>
         <Footer />

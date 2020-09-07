@@ -21,7 +21,8 @@ export default function NotFound() {
       </Head>
 
       <div className="main">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
         <header className='content-center not-found-container'>
           <div className="big-logo">
             <Logo />

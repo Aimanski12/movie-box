@@ -1,6 +1,9 @@
 import React, {useEffect, useContext, useState} from 'react'
 import Head from 'next/head'
 import Navbar from '../../../components/Navbars/Navbars'
+import ItemStats from '../../../components/PersonDetail/ItemStats'
+import DetailMovies from '../../../components/PersonDetail/DetailImage'
+import Posters from '../../../components/PersonDetail/Poster'
 import Footer from '../../../components/Footer/Footer'
 import {useRouter} from 'next/router'
 import {AppsData} from '../../../utils/context/appDataContext'
@@ -11,10 +14,7 @@ export default function Person() {
   const router = useRouter()
   const {setActiveRoute} = useContext(AppsData)
   const [w, setWidth] = useState(0)
-  const [data, setData] = useState({
-    isSet: false,
-    data: {}
-  })
+  const [data, setData] = useState({ isSet: false, data: {} })
   
   useEffect(()=>{
     setActiveRoute('Person')
@@ -24,11 +24,10 @@ export default function Person() {
     async function gData() {
       const path = window.location.pathname.split('/')
       let a = await findPerson(path[3])
-      if(!data.isSet) {
-        setData({
-          isSet: true,
-          data: a
-        })
+      if(!a.details) {
+        router.replace('/404', window.location.pathname)
+      } else {
+        if(!data.isSet) { setData({ isSet: true, data: a }) }
       }
     } gData()
   })
@@ -41,17 +40,27 @@ export default function Person() {
       </Head>
 
       <div className="main">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
 
       { data.isSet ? 
         <Header 
-        details={data.data.details}
-        width={w}/> : null }
+          details={data.data.details}
+          width={w}/> : null }
 
-        <div className="div1"></div>
-        <div className="div2"></div>
+        <section className='item-details'>
+          {data.isSet ?
+            <ItemStats data={data.data.details}/> : null}
 
-
+          {data.isSet ? 
+            <DetailMovies 
+              width={w} data={data.data.movies}/> : null}
+        </section>
+        
+        {data.isSet ? 
+          <Posters 
+            name={data.data.details.name}
+            posters={data.data.posters}/> : null}
         <Footer />
       </div>
 

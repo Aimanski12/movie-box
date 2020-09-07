@@ -23,7 +23,8 @@ export default function Home({data}) {
       </Head>
 
       <div className="main">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
         <HeaderCarousel 
           data={data.popular}/>
 

@@ -10,7 +10,7 @@ function DetailsImg(props) {
     return (
       <Fade key={i}>
         <div className="person">
-          <Link href='/' as='/'>
+          <Link href='/people/person/[_id]' as={`/people/person/${d.id}`}>
             <img src={d.profile_path === null ? '/image/backup-image.png' : `https://image.tmdb.org/t/p/w500${d.profile_path}`}  alt={`${d.name} poster`}/>
           </Link>
           <h2>{filterTitle(d.name, props.width)}</h2>

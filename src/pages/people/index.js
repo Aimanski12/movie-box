@@ -40,7 +40,8 @@ export default function People() {
       </Head>
 
       <div className="main page-padding">
-        <Navbar />  
+        <Navbar 
+          onSearchPage={false}/>  
         {people}
         <Pagination 
           click={(val=>getNewData(val))}

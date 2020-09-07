@@ -2,7 +2,7 @@
 .modal-p {
   background: rgba(22, 30, 57, 1);
   border-radius: 10px;
-  width: 660px;
+  width: 770px;
   min-height: 50px;
   padding: 50px 30px;
 }
@@ -10,7 +10,7 @@
 .modal-p span {
   color: #E3E3E3;
   font-weight: 300;
-  width: 600px;
+  width: 710px;
   text-align: center;
   margin-bottom: 15px;
   line-height: 30px;
@@ -39,7 +39,7 @@
 }
 
 @media(max-width: 968px){
-  .detail-modal {
+  .person-bio-modal {
     display: block;
     overflow-y: auto
 

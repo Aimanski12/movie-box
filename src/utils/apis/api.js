@@ -1,4 +1,4 @@
-import {findUrl, requestData, fetchdata, filterData} from './config'
+import {findUrl, requestData, fetchdata, filterData, hasVal, searchUrl} from './config'
 
 // function to fetch the home page data
 export async function homeDataPage () {
@@ -66,11 +66,31 @@ export async function findVideo (page, id) {
 
   // filter the return calue
   return filterData(details, posters, video, cast, keywords, similar, pUrl)
-  
 }
-
 
 export async function findPerson(id) {
   const details = await requestData(findUrl(`/person/${id}`, 'pdetails'))
-  return {details}
+  const movies = await requestData(findUrl(`/person/${id}/movie_credits`, 'pmovies'))
+  const posters = await requestData(findUrl(`/person/${id}/images`, 'pmovies'))
+
+  return hasVal(details, movies, posters)
+}
+
+
+export async function searchMovie (val, page) {
+  let query = encodeURIComponent(val)
+  
+  // const movies = await requestData(searchUrl(query, page, 'movies'))
+  const tvshows = await requestData(searchUrl(query, page, 'tvshow'))
+  // const people = await requestData(searchUrl(query, page, 'people'))
+
+  // console.log(searchUrl(query, page, 'people'))
+  console.log(tvshows)
+
+
+  // if(movies.results.length < 1) {
+  //   return false
+  // } else {
+  //   return movies
+  // }
 }
