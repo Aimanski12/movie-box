@@ -18,6 +18,9 @@
 }
 
 @media (max-width: 768px){
+  .quotes {
+    width: 80%;
+  }
   .quotes h3 {
     font-size: 1.45em;
   }
@@ -27,6 +30,9 @@
 }
 
 @media (max-width: 668px){
+  .quotes {
+    width: 85%;
+  }
   .quotes h3 {
     font-size: 1.4em;
   }
@@ -36,6 +42,9 @@
 }
 
 @media (max-width: 568px){
+  .quotes {
+    width: 90%;
+  }
   .quotes h3 {
     font-size: 1.35em;
   }
@@ -45,6 +54,9 @@
 }
 
 @media (max-width: 468px){
+  .quotes {
+    width: 95%;
+  }
   .quotes h3 {
     font-size: 1.3em;
   }

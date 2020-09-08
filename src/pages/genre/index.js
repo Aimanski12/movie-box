@@ -23,7 +23,7 @@ export default function Genre() {
         <Navbar 
           onSearchPage={false}/>  
         <GenreHeader />
-        <Footer />
+        <Footer quote={13}/>
       </div>
     </div>
   )

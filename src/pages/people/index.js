@@ -46,7 +46,7 @@ export default function People() {
         <Pagination 
           click={(val=>getNewData(val))}
           totalpages={data.totalpages} />
-        <Footer />
+        <Footer quote={11}/>
       </div>
     </div>
   )

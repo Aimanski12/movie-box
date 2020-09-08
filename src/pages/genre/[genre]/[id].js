@@ -87,7 +87,7 @@ export default function Genre() {
         <Pagination 
           click={(val=>getNewData(val))}
           totalpages={data.totalpages} />
-        <Footer />
+        <Footer quote={14}/>
       </div>
     </div>
   )

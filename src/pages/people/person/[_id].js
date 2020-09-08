@@ -61,7 +61,7 @@ export default function Person() {
           <Posters 
             name={data.data.details.name}
             posters={data.data.posters}/> : null}
-        <Footer />
+        <Footer quote={12}/>
       </div>
 
 

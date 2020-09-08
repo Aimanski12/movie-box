@@ -3,10 +3,10 @@ import FooterQuotes from './Component/FooterQuotes'
 import FooterNav from './Component/FooterNav'
 import FooterLinks from './Component/FooterLink'
 
-function Footer() {
+function Footer(props) {
   return (
     <footer className='content-center'>
-      <FooterQuotes />
+      <FooterQuotes quote={props.quote}/>
       <FooterNav />
       <div className='content-center footer-desc'>
         <span>A project for fun, learning, and creativity.</span>

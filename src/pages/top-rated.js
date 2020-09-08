@@ -54,7 +54,7 @@ export default function TopRated() {
         <Pagination 
           click={(val=>getNewData(val))}
           totalpages={data.totalpages} />
-        <Footer />
+        <Footer quote={9}/>
       </div>
     </div>
   )

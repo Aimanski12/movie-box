@@ -113,13 +113,11 @@ export default function Search() {
               data={data.data.people}
               text='People'
               click={(page)=>getNewData(page, 'people')} /> : null }
-            
             </div>
-          
           </div>
         </div>
         
-        <Footer />
+        <Footer quote={16}/>
 
       </div>
     </div>

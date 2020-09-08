@@ -48,7 +48,7 @@ export default function MovieId() {
           onSearchPage={false}/>  
         <Movie 
           data={data}/>
-        <Footer />
+        <Footer quote={15}/>
       </div>
 
     </div>

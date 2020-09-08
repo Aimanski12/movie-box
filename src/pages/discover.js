@@ -55,7 +55,7 @@ export default function Discover({data}) {
           total={data.upcoming.total_results}
           data={filterData(data.upcoming.results)}/>
 
-        <Footer />
+        <Footer quote={7}/>
       
       </div>
     </div>

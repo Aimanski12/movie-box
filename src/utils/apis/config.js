@@ -47,7 +47,6 @@ export function findUrl(r, l) {
   } 
 }
 
-
 export function searchUrl (r, p, route){
   const ad = '&include_adult=false'
   if(route === 'movies') {
@@ -58,7 +57,6 @@ export function searchUrl (r, p, route){
     return `${url}/search/person?${api}&${lang}&query=${r}&page=${p}${ad}`
   }
 }
-
 
 export function filterData (details, posters, video, cast, keywords, similar, pUrl) {
   if(isUn(details) && isUn(posters) && isUn(video) && isUn(cast) && isUn(keywords)) {
