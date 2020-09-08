@@ -3,7 +3,7 @@ import {addComma} from './common'
 
 // this function checks if the route query has valid values
 export function checkifvalid (query, path) {
-  let routeUrl = ["tv-shows", "trending", "discover", "popular", "top-rated", "upcoming", "popular", "top-rated", "upcoming", "people", "genre", "movies", "popular", "on-air", "today", "this-week"]
+  let routeUrl = ["tv-shows", "trending", "discover", "popular", "top-rated", "upcoming", "popular", "top-rated", "upcoming", "people", "genre", "movies", "popular", "on-air", "today", "this-week", 'search']
   let wpath = path.split('/')
   // console.log(query, wpath)
 
@@ -109,6 +109,7 @@ export function prodCountries(pc1, pc2) {
   }
 }
 
+// extract producers data
 export function producers (val) {
   if(!val || val === undefined || val === null) {
     return <span className="stat-desc">Not given</span>

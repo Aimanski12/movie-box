@@ -6,24 +6,16 @@ import FooterLinks from './Component/FooterLink'
 function Footer() {
   return (
     <footer className='content-center'>
-
       <FooterQuotes />
-
-
       <FooterNav />
-
       <div className='content-center footer-desc'>
         <span>A project for fun, learning, and creativity.</span>
-        <span>
-          <a href="https://github.com/Aimanski12/movie-box"
+        <span>&#169; 
+          <a href="https://aimanadlawan.com/"
             el='noopener noreferrer'
-            target='_blank'>View source code</a>
-        </span>
-        <span>&#169; Aiman Adlawan 2020.</span>
+            target='_blank'> Aiman Adlawan</a> 2020.</span>
       </div>
-
       <FooterLinks />
-
     </footer>
   )
 }

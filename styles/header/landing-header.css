@@ -144,11 +144,9 @@
 }
 
 @media screen and (max-width: 896px) and (orientation: landscape) {
-
   .landing-header {
     height: 710px;
   }
-
 }
 
 @media (max-width: 868px) {

@@ -53,7 +53,7 @@ export default function Popular() {
         <Pagination 
           click={(val=>getNewData(val))}
           totalpages={data.totalpages} />
-        <Footer />
+        <Footer quote={5}/>
       </div>
     </div>
   )

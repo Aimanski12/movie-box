@@ -2,13 +2,11 @@
   min-height: 400px;
   width: 100%;
   padding: 40px 0 0 0 ;
-  /* background: rgba(190,190,190,0.2); */
 }
 
 .movielist-wrapper {
   min-height: 250px;
   width: 1100px;
-  /* background: rgba(190,190,190,0.2); */
   color: #F2F2F2;
 }
 
@@ -39,7 +37,6 @@
   height: 380px;
   margin: 10px 15px 15px 15px;
   display: inline-block;
-  /* background: rgba(190, 190, 190, 0.2); */
 }
 
 .movie img {
@@ -217,7 +214,6 @@
   .movie img {
     height: 263px;
   }
-
   .movie-rating, .movie-date {
     font-size: 0.75em;
     height: 22px;

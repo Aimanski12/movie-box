@@ -24,6 +24,7 @@ export function setInitialOpacity (num) {
   } 
 }
 
+// check for the current header is selected
 export function checkCurrent (direction, current){
   let num
   const length = document.querySelectorAll('.landing-header').length - 1;

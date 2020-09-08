@@ -6,7 +6,6 @@
   box-sizing: border-box;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 500;
-  
 }
 
 a {
@@ -20,7 +19,6 @@ body, .main-container {
   background: #161E39;
 }
 
-
 .content-center {
   display: flex;
   flex-direction: column;
@@ -32,22 +30,6 @@ body, .main-container {
   width: 1580px;
   height: 100vh;
 }
-
-
-/* delete this part */
-/* delete this part */
-.div1{
-  width: 100%;
-  height: 100vh;
-  background: pink;
-}
-.div2 {
-  width: 100%;
-  height: 100vh;
-  background: #161E39;
-}
-/* delete this part */
-/* delete this part */
 
 
 .name-label {
@@ -137,12 +119,10 @@ body, .main-container {
   }
 }
 
-
 @media screen and (max-width: 896px) and (orientation: landscape) {
   .main {
     height: 720px;
   }
-
   .div1, .div2{
     height: 720px
   }

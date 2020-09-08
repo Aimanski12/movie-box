@@ -145,7 +145,6 @@
     height: 0;
     overflow: hidden;
     background: #243057;
-    /* background: #161E39; */
     transition: all 0.2s ease-in;
   }
   .search-input {
@@ -174,7 +173,6 @@
   .search-input {
     width: 75%;
   }
-
   .search-button {
     height: 46px;
     width: 46px;
@@ -185,7 +183,6 @@
   .search-input {
     width: 70%;
   }
-
   .search-button {
     height: 46px;
     width: 46px;

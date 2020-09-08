@@ -48,13 +48,13 @@ export function findUrl(r, l) {
 }
 
 
-export function searchUrl (r, p, url){
-  const ad = '&include_adult=true'
-  if(url === 'movie') {
+export function searchUrl (r, p, route){
+  const ad = '&include_adult=false'
+  if(route === 'movies') {
     return `${url}/search/movie?${api}&${lang}&query=${r}&page=${p}${ad}`
-  } else if (url === 'tvshow') {
+  } else if (route === 'tvshows') {
     return `${url}/search/tv?${api}&${lang}&page=${p}&query=${r}${ad}`
-  } else {
+  } else if(route === 'people'){
     return `${url}/search/person?${api}&${lang}&query=${r}&page=${p}${ad}`
   }
 }
@@ -77,6 +77,7 @@ export function filterData (details, posters, video, cast, keywords, similar, pU
   }
 }
 
+// check if the data has a value
 export function hasVal (details, movies, posters) {
   if(isUn(details) && isUn(movies) && isUn(posters)) {
     return {data: false}
@@ -85,6 +86,7 @@ export function hasVal (details, movies, posters) {
   }
 }
 
+// check if the data has a value
 function isUn (val) {
   if(val === undefined){
     return true

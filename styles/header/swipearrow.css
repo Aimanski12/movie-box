@@ -42,15 +42,7 @@
 }
 
 @media screen and (max-width: 896px) and (orientation: landscape) {
-
   .controls {
     top: 340px;
-  }
-
-}
-
-@media (max-width: 668px){
-  .controls {
-    /* display: none; */
   }
 }

@@ -11,13 +11,12 @@
   text-align: center;
 }
 
-
-.footer-desc span:nth-child(2) {
+.footer-desc span a {
   color: #80D2DD;
   transition: all 0.2s ease-in;
 }
 
-.footer-desc span:nth-child(2):hover {
+.footer-desc span a:hover {
   cursor: pointer;
   color: #71B1BA;
   transition: all 0.2s ease-in;

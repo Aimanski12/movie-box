@@ -42,7 +42,7 @@ export default function Trending({data}) {
           title={'Trending Week'}
           total={data.week.total_results}
           data={filterData(data.week.results)}/>
-        <Footer />
+        <Footer quote={4}/>
       </div>
     </div>
   )

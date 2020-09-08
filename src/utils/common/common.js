@@ -133,6 +133,7 @@ export const initData = {
   link: 'action'
 }
 
+// open the modal
 export function modalEl (){
   let vid, hasVid;
   const modal = document.querySelector('.detail-modal')
@@ -148,6 +149,7 @@ export function modalEl (){
   return {modal, vid, hasVid}
 }
 
+// download the poster
 export function download(l, title) {
   axios({
     url: l, //your url

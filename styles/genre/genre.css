@@ -1,14 +1,12 @@
 .genre-header {
   width: 100%;
   min-height: 100vh;
-  /* background: rgba(190,190,190,0.1) */
 }
 
 .genre-wrapper {
   margin-top: 130px;
   width: 1000px;
   min-height: 100vh;
-  /* background: rgba(190,190,190,0.1); */
 }
 
 .genre-wrapper h1 {
@@ -18,7 +16,6 @@
 .genre-list {
   width: 100%;
   min-height: 500px;
-  /* background: rgb(190,190,190,0.1); */
 }
 
 .genre-list figure {
@@ -79,7 +76,6 @@
     font-size: 1.9em;
   }
 }
-
 
 @media (max-width: 1268px) {
   .genre-wrapper {

@@ -1,4 +1,5 @@
 
+// animation for the navbar when it is scrolled
 export function scroll() {
   const w = window.innerWidth
   const navbar = document.querySelector('.top-nav') 

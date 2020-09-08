@@ -45,7 +45,7 @@ export default function TvShows({data}) {
           total={data.on_air.total_results}
           data={filterData(data.on_air.results)}/>
       
-        <Footer />
+        <Footer quote={1}/>
       </div>
     </div>
   )

@@ -179,11 +179,9 @@
 }
 
 @media screen and (max-width: 896px) and (orientation: landscape) {
-
   .detail-page-header, .img-backer, .img-backer img, .detail-page-wrapper {
     height: 710px;
   }
-
 }
 
 @media (max-width: 868px) {

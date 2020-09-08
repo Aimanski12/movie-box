@@ -6,7 +6,7 @@ export function animateBreadCrumbs (val) {
     if(x === val) { 
       animate(items[x])
     } else {
-      items[x].classList.remove = 'item-open'
+      // items[x].classList.remove = 'item-open'
       items[x].style.display = 'none'
       items[x].style.opacity = 0
       items[x].style.zIndex = 0

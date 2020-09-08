@@ -48,7 +48,7 @@ export default function Home({data}) {
           total={data.upcoming.total_results}
           data={filterData(data.upcoming.results)} />
 
-        <Footer />
+        <Footer quote={0}/>
 
       </div>
     </div>

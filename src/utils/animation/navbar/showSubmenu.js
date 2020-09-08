@@ -77,8 +77,6 @@ function setMain(){
   }
 }
 
-
-
 function animbar (h, first, second) {
   const height = first.offsetHeight
   close(second)

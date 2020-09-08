@@ -24,7 +24,6 @@
   }
 }
 
-
 @media (max-width: 1068px) {
   .link-btn {
     border-radius: 5px;
@@ -39,12 +38,10 @@
   }
 }
 
-
 @media (max-width: 468px) {
   .link-btn {
     height: 35px;
     padding: 0 15px;
     font-size: 0.8em;
   }
-
 }

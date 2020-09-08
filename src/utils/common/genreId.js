@@ -32,7 +32,6 @@ function checkDetails (arg, query) {
       return d.id === query
     }
   })
-  
 }
 
 export function findTitle (val) {

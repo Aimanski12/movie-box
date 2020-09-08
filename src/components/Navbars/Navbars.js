@@ -29,8 +29,9 @@ function Navbars(props) {
         <Logo />
         <Menulists 
           isOpen={menu}
-          menuBarClick={(val)=>click('menu', val)}/>
+          menuBarClick={(val)=>click('menu', val)} />
         <Search 
+          width={props.width}
           onSearchPage={props.onSearchPage}
           click={(val)=>{props.click(val)}}
           isOpen={search}

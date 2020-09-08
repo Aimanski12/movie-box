@@ -53,7 +53,7 @@ export default function Upcoming() {
         <Pagination 
           click={(val=>getNewData(val))}
           totalpages={data.totalpages} />
-        <Footer />
+        <Footer quote={0}/>
       </div>
     </div>
   )

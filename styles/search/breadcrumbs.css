@@ -3,7 +3,6 @@
   width: 100%;
   height: 52px;
   border-bottom: 1px solid rgba(190,190,190,0.3);
-  /* background: rgba(190,190,190,0.2); */
 }
 
 .breadcrumb-cont {
@@ -36,15 +35,15 @@
   transition: all 0.3s ease;
 }
 
-.active {
+ .breadcrumb-wrapper .active {
   background: rgba(190, 190, 190, 0.3);
 }
 
-.active span {
+.breadcrumb-wrapper .active span {
   color: #DADADA;
 }
 
-.active span i{
+.breadcrumb-wrapper .active span i {
   color: yellow
 }
 

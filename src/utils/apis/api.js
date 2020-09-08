@@ -76,21 +76,17 @@ export async function findPerson(id) {
   return hasVal(details, movies, posters)
 }
 
-
+// search data from the key word
 export async function searchMovie (val, page) {
   let query = encodeURIComponent(val)
-  
-  // const movies = await requestData(searchUrl(query, page, 'movies'))
-  const tvshows = await requestData(searchUrl(query, page, 'tvshow'))
-  // const people = await requestData(searchUrl(query, page, 'people'))
+  const movies = await requestData(searchUrl(query, page, 'movies'))
+  const tvshows = await requestData(searchUrl(query, page, 'tvshows'))
+  const people = await requestData(searchUrl(query, page, 'people'))
+  return {movies, tvshows, people}
+}
 
-  // console.log(searchUrl(query, page, 'people'))
-  console.log(tvshows)
-
-
-  // if(movies.results.length < 1) {
-  //   return false
-  // } else {
-  //   return movies
-  // }
+// link o get another data
+export async function getAnotherData (page, query, route) {
+  let q = encodeURIComponent(query)
+  return await requestData(searchUrl(q, page, route))
 }

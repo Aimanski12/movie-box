@@ -17,12 +17,16 @@ function Search(props) {
     if (!inputVal || 1 === inputVal.length || /^\s*$/.test(inputVal)) {
       return 
     } else {
-      setInput('')
       if(props.onSearchPage){
+        // console.log(props.onSearchPage)
         props.click(inputVal)
+        let a = encodeURIComponent(inputVal)
+        router.replace('/[movies]/search/[_search]', `/movies/search/${a}`)
+        setInput('')
       } else {
         let a = encodeURIComponent(inputVal)
         router.replace('/[movies]/search/[_search]', `/movies/search/${a}`)
+        setInput('')
       }
     }
   }
@@ -55,11 +59,20 @@ function Search(props) {
           className='search-input'
           value={inputVal}
           name='search'
+          onKeyPress={(e)=>{
+            if(e.key === 'Enter') {
+              props.width <= 968 ? click() : null
+              setUrl(e.target.value)
+            }
+          }}
           onChange={(e)=>setInput(e.target.value)}/>
         <button 
           className='search-button'
           type='button'
-          onClick={setUrl}>
+          onClick={()=>{
+            setUrl()
+            props.width <= 968 ? click() : null
+          }}>
             <SearchSvg color={'#0F1B46'} />
         </button>
       </div>

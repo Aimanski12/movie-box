@@ -42,30 +42,15 @@
   .person-bio-modal {
     display: block;
     overflow-y: auto
-
   }
-
   .modal-p {
     min-height: 50px;
     width: 600px;
     padding: 50px 25px;
-    
-
   }
-
   .modal-p span {
     width: 550px;
     font-size: 0.95em;
-
-    margin-bottom: 15px;
-    line-height: 30px;
-  }
-
-  .modal-p button {
-
-    width: 70px;
-    height: 40px;
-    border-radius: 3px;
   }
 }
 
@@ -73,7 +58,6 @@
   .modal-p {
     margin: 0 auto;
     margin-top: 20px;
-
   }
 }
 
@@ -81,50 +65,22 @@
   .modal-p {
     width: 500px;
     padding: 40px 20px;
-
-    min-height: 50px;
   }
-
   .modal-p span {
     width: 460px;
-
-    margin-bottom: 15px;
-    line-height: 30px;
-  }
-
-  .modal-p button {
-
-    width: 70px;
-    height: 40px;
-    border-radius: 3px;
   }
 }
-
 
 @media(max-width: 668px) {
   .modal-p {
     width: 80%;
     padding: 20px 5%;
-
-    min-height: 50px;
   }
-
   .modal-p span {
     width: 100%;
     font-size: 0.9em;
-
-    margin-bottom: 15px;
-    line-height: 30px;
-  }
-
-  .modal-p button {
-
-    width: 70px;
-    height: 40px;
-    border-radius: 3px;
   }
 }
-
 
 @media(max-width: 568px) {
   .modal-p {
@@ -132,19 +88,9 @@
     padding: 20px 3.5%;
     min-height: 50px;
   }
-
   .modal-p span {
     width: 100%;
     font-size: 0.87em;
     line-height: 27px;
-
-    margin-bottom: 15px;
-  }
-
-  .modal-p button {
-
-    width: 70px;
-    height: 40px;
-    border-radius: 3px;
   }
 }

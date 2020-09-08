@@ -54,7 +54,7 @@ export default function OnAir() {
         <Pagination 
           click={(val=>getNewData(val))}
           totalpages={data.totalpages} />
-        <Footer />
+        <Footer quote={2}/>
       </div>
     </div>
   )
