@@ -4,10 +4,13 @@ import {showmodal} from '../../../utils/animation/detail/modal'
 import {filterDesc} from '../../../utils/common/common'
 import Video from './Video'
 import {useRouter} from 'next/router'
+import {addItemToFirebase} from '../../../utils/apis/firebase'
 
 function Header(props) {
   const router = useRouter()
   let data = props.desc
+  
+  addItemToFirebase('movies', data.title ? data.title : data.name)
       
   return (
     <header className='detail-page-header'>

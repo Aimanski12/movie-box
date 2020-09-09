@@ -20,9 +20,9 @@ export default function Search() {
   const [data, setData] = useState({isSet: false, data: {}})
   
   useEffect(()=>{
+    setActiveRoute('Search')
     window.addEventListener('resize', () => setWidth(window.innerWidth))
     w === 0 ? setWidth(window.innerWidth) : null
-    setActiveRoute('Search')
     const path = window.location.pathname.split('/')[3]
     const url = decodeURIComponent(path)
 
@@ -79,12 +79,12 @@ export default function Search() {
 
         <meta property="og:title" content="Movie Box - Search Movies" />
         <meta property="og:description" content="This Movie Box website is developed by Aiman Adlawan that allows the visitor to search movies produced from all over the world." />
-        <meta property="og:image" content="/image/favicon.ico" />
+        <meta property="og:image" content="/image/meta-logo.ico" />
         <meta property="og:url" content="https://movie-box-flame.vercel.app/" />
 
         <meta name="twitter:title" content="Movie Box - Search Movies" />
         <meta name="twitter:description" content="This Movie Box website is developed by Aiman Adlawan that allows the visitor to search movies produced from all over the world." />
-        <meta name="twitter:image" content="/image/favicon.ico" />
+        <meta name="twitter:image" content="/image/meta-logo.ico" />
       </Head>
 
       <div className="main page-padding search-page">

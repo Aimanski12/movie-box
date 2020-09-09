@@ -19,6 +19,7 @@ export default function MovieId() {
     const query = router.query
     const path = window.location.pathname
     const valid = checkifvalid(query, path)
+
     if(!valid.isTrue) {
       router.replace('/404', window.location.pathname)
     } else {
@@ -48,12 +49,12 @@ export default function MovieId() {
 
         <meta property="og:title" content="Movie Box - Movie Detail" />
         <meta property="og:description" content="This Movie Box website is developed by Aiman Adlawan that allows the visitor to search movies produced from all over the world." />
-        <meta property="og:image" content="/image/favicon.ico" />
+        <meta property="og:image" content="/image/meta-logo.ico" />
         <meta property="og:url" content="https://movie-box-flame.vercel.app/" />
 
         <meta name="twitter:title" content="Movie Box - Movie Detail" />
         <meta name="twitter:description" content="This Movie Box website is developed by Aiman Adlawan that allows the visitor to search movies produced from all over the world." />
-        <meta name="twitter:image" content="/image/favicon.ico" />
+        <meta name="twitter:image" content="/image/meta-logo.ico" />
       </Head>
 
       <div className="main">

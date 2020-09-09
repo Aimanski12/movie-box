@@ -1,4 +1,5 @@
 import React, {useState, createContext} from 'react'
+import {setFirebase} from '../apis/firebase'
 import route from '../common/routes.json'
 
 export const AppsData = createContext()
@@ -7,9 +8,9 @@ export function AppsDataContext (props) {
 
   // routes state
   const [page, setRoutes] = useState({
-    active: 'Home',
+    active: '',
     urls: route.routes,
-    landingHeader: 0
+    landingHeader: 0,
   })
 
   function setPageState (newState) {
@@ -22,10 +23,12 @@ export function AppsDataContext (props) {
   // update route state
   function setNewState (val) {
     if(val !== page.active){
+      setFirebase(val)
       setPageState({
         active: val
       })
     }
+
   }
 
   function setPageHeader(val) {
@@ -44,3 +47,4 @@ export function AppsDataContext (props) {
     </AppsData.Provider>
   )
 }
+

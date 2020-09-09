@@ -9,6 +9,7 @@ import {AppsData} from '../../../utils/context/appDataContext'
 import {scrollTop, initData} from '../../../utils/common/common'
 import {findGenre} from '../../../utils/apis/api'
 import {checkifvalid, findTitle} from '../../../utils/common/genreId'
+import {addItemToFirebase} from '../../../utils/apis/firebase'
 
 export default function Genre() {
   const router = useRouter()
@@ -16,8 +17,8 @@ export default function Genre() {
   const [data, setData] = useState(initData)
   
   useEffect(()=>{
-    setActiveRoute('Genre Indvl')
     let valid, url;
+    setActiveRoute('Genre Indvl')
     
     if(Object.keys(router.query).length > 0) {
       url = router.query
@@ -33,6 +34,7 @@ export default function Genre() {
     }
     
     if(valid) {
+      addItemToFirebase('genre', url.genre)
       if(!data.isSet) {
         async function gData (){
           let a = await findGenre(url.id, 1)
@@ -76,12 +78,12 @@ export default function Genre() {
 
         <meta property="og:title" content="Movie Box - Movies by Genre" />
         <meta property="og:description" content="This Movie Box website is developed by Aiman Adlawan that allows the visitor to search movies produced from all over the world." />
-        <meta property="og:image" content="/image/favicon.ico" />
+        <meta property="og:image" content="/image/meta-logo.ico" />
         <meta property="og:url" content="https://movie-box-flame.vercel.app/" />
 
         <meta name="twitter:title" content="Movie Box - Movies by Genre" />
         <meta name="twitter:description" content="This Movie Box website is developed by Aiman Adlawan that allows the visitor to search movies produced from all over the world." />
-        <meta name="twitter:image" content="/image/favicon.ico" />
+        <meta name="twitter:image" content="/image/meta-logo.ico" />
         <meta name="twitter:card" content="summary" />
       </Head>
 

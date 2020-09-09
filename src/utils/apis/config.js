@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const url = 'https://api.themoviedb.org/3'
-const api = 'api_key=f79c1f33b89b8f1e137114c46a4df913'
 const lang = 'language=en-US'
+const api = 'api_key=your-api-key'
 
 export async function fetchdata(route, page, genre) {
   let tmdbUrl = genre === true ?

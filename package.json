@@ -16,6 +16,7 @@
     "react-dom": "16.13.1",
     "react-paginate": "^6.3.2",
     "react-reveal": "^1.2.2",
-    "sass": "^1.26.10"
+    "sass": "^1.26.10",
+    "ua-parser-js": "^0.7.21"
   }
 }

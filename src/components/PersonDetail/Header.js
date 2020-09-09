@@ -3,10 +3,12 @@ import Modal from './Modal'
 import {filterDesc} from '../../utils/common/common'
 import {showmodal} from '../../utils/animation/detail/personmodal'
 import {useRouter} from 'next/router'
+import {addItemToFirebase} from '../../utils/apis/firebase'
 
 function Header(props) {
   const data = props.details
   const router = useRouter()
+  addItemToFirebase('person', data.name)
 
   return (
     <header className='detail-page-header person-bio'>
@@ -37,7 +39,6 @@ function Header(props) {
           </div>
         </div>
       </div>
-      
       <Modal bio={data.biography}/>
     </header>
   )
