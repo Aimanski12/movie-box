@@ -1,30 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Movie-Box-Site
 
-## Getting Started
+> This website allows the user to search movies produced from all over the world. It features top-rated, upcoming, popular released movies and many more. It also allows searching movies by genre and on-air tv shows and download movie posters. You can also search actors and actresses movies and stats.
 
-First, run the development server:
+[View it live from your browser.](http://movie-box-site.vercel.app) Deployed through vercel.<br>
+
+<div float="left">
+  <img src="https://github.com/Aimanski12/proj-resource/blob/master/libs/react/react24-movie-box.gif" alt="screen shot">
+</div>
+
+> Things I learned in this project;
+  * How to query data using GET/POST/PUT/DELETE request from  and external API.
+  * How to use javascript to download media files from the browser.
+  * How to render responsive websites and make use of all device sizes responsive.
+  * How to create websites using NextJS and render dynamic pages.
+  * How to use animations using animejs.
+  * How to add pagepaginations.
+
+  > References:
+  * [TMDB API](https://developers.themoviedb.org/3)
+  * [ANIME JS](https://animejs.com/documentation/)
+  * [NextJS](https://nextjs.org/)
+  * [JS Download](https://www.w3schools.com/tags/att_a_download.asp)
+  * [ReactJS Paginatin](https://github.com/AdeleD/react-paginate)
+
+
+## Installation
+
+Download the repo with:
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ git clone https://github.com/Aimanski12/movie-box proj-name
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After downloading the repo you can cd into the `proj-name` and then open up your console and type 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+$ npm install
+```
 
-## Learn More
+after installing the application modules, go to [TMDBs API](https://developers.themoviedb.org/3) to signup and get your API token token. Once you get your token, go to `/src/utils/apis/config.js` file and enter your token on the APIKeys.
 
-To learn more about Next.js, take a look at the following resources:
+then run the application with the live-server or you can type;
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+$ npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+All the assets are already included so you can run the application and it will work. 
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you find bugs with this project, pull requests are always welcome. You can [create an issue here](https://github.com/Aimanski12/ReactJS_Projects/issues/new).
+Your :sparkles: are also greatly appreciated.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you want to know my JS project you can see it [here](http://bit.ly/aiman-javascript-projects)
+
+## Author
+
+[Aimanski](http://bit.ly/aiman-profile-github).
+
+## License 
+
+Copyright © 2019, [Aimanski12](http://bit.ly/aiman-profile-github).
+Released under the [MIT License](LICENSE).
+
