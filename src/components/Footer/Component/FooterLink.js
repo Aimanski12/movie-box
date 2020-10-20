@@ -6,7 +6,7 @@ function FooterLink() {
     return (
       <span key={i}>
         <a href={link.link} 
-          el='noopener noreferrer' 
+          rel='noopener noreferrer' 
           target='_blank'>
           <img src={`/image/${link.img}.png`} alt={`small ${link.img} logo`}/>
         </a>

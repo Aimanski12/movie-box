@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
 import MovieList from '../components/MovieLists/MovieList'
 import Footer from '../components/Footer/Footer'
+import Intro from '../components/Intro/Intro'
 import Pagination from '../components/Pagination/Pagination'
 import {AppsData} from '../utils/context/appDataContext'
 import {scrollTop, spd, initData} from '../utils/common/common'
@@ -11,6 +12,10 @@ import {getDataPage} from '../utils/apis/api'
 export default function Popular() {
   const {setActiveRoute} = useContext(AppsData)
   const [data, setData] = useState(initData)
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
 
   useEffect(()=>{
     setActiveRoute('Popular')
@@ -20,7 +25,17 @@ export default function Popular() {
         setData( spd(a.data, data))
       }
       gData()
-    } 
+    }
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
+    }
   },[])
 
   async function getNewData(val){
@@ -53,23 +68,26 @@ export default function Popular() {
       </Head>
 
       <div className="main page-padding">
-        <Navbar 
-          onSearchPage={false}/>  
-        { Object.keys(data.data).length !== 0 ? 
-            <MovieList 
-              viewBtn={false}
-              hlink='/popular'
-              aslink='/popular'
-              link='/popular/movies'
-              type='movie'
-              title={'Popular Movies'}
-              total={data.data.total_results}
-              data={data.data.results}/> : null
-        }
-        <Pagination 
-          click={(val=>getNewData(val))}
-          totalpages={data.totalpages} />
-        <Footer quote={8}/>
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            onSearchPage={false}/>  
+          { Object.keys(data.data).length !== 0 ? 
+              <MovieList 
+                viewBtn={false}
+                hlink='/popular'
+                aslink='/popular'
+                link='/popular/movies'
+                type='movie'
+                title={'Popular Movies'}
+                total={data.data.total_results}
+                data={data.data.results}/> : null
+          }
+          <Pagination 
+            click={(val=>getNewData(val))}
+            totalpages={data.totalpages} />
+          <Footer quote={8}/>
+        </> : null }
       </div>
     </div>
   )

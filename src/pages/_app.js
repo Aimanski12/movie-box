@@ -49,6 +49,9 @@ import '../../styles/search/breadcrumbs.css'
 import '../../styles/search/noresult.css'
 import '../../styles/search/itemsresult.css'
 
+// intro css
+import '../../styles/Intro/intro.css'
+
 import {AppsDataContext} from '../utils/context/appDataContext'
 
 function MyApp({ Component, pageProps, router }) {

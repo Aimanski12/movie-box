@@ -1,6 +1,7 @@
 import React, {useEffect, useContext, useState} from 'react'
 import Head from 'next/head'
 import Navbar from '../../components/Navbars/Navbars'
+import Intro from '../../components/Intro/Intro'
 import MovieList from '../../components/MovieLists/MovieList'
 import Footer from '../../components/Footer/Footer'
 import Pagination from '../../components/Pagination/Pagination'
@@ -11,6 +12,10 @@ import {getDataPage} from '../../utils/apis/api'
 export default function ThisWeek() {
   const {setActiveRoute} = useContext(AppsData)
   const [data, setData] = useState(initData)
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
 
   useEffect(()=>{
     setActiveRoute('This Week')
@@ -21,6 +26,16 @@ export default function ThisWeek() {
       }
       gData()
     } 
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
+    }
   },[])
 
   async function getNewData(val){
@@ -53,23 +68,26 @@ export default function ThisWeek() {
       </Head>
 
       <div className="main page-padding">
-        <Navbar 
-          onSearchPage={false}/>  
-        { Object.keys(data.data).length !== 0 ? 
-            <MovieList 
-              viewBtn={false}
-              hlink='/[movies]/this-week'
-              aslink='/trending/this-week'
-              link='/trending/this-week'
-              type='movie'
-              title={'Trending Week'}
-              total={data.data.total_results}
-              data={data.data.results}/> : null
-        }
-        <Pagination 
-          click={(val=>getNewData(val))}
-          totalpages={data.totalpages} />
-        <Footer quote={6}/>
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            onSearchPage={false}/>  
+          { Object.keys(data.data).length !== 0 ? 
+              <MovieList 
+                viewBtn={false}
+                hlink='/[movies]/this-week'
+                aslink='/trending/this-week'
+                link='/trending/this-week'
+                type='movie'
+                title={'Trending Week'}
+                total={data.data.total_results}
+                data={data.data.results}/> : null
+          }
+          <Pagination 
+            click={(val=>getNewData(val))}
+            totalpages={data.totalpages} />
+          <Footer quote={6}/>
+        </> : null }
       </div>
     </div>
   )

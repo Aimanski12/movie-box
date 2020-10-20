@@ -5,6 +5,7 @@ import ItemStats from '../../../components/PersonDetail/ItemStats'
 import DetailMovies from '../../../components/PersonDetail/DetailImage'
 import Posters from '../../../components/PersonDetail/Poster'
 import Footer from '../../../components/Footer/Footer'
+import Intro from '../../../components/Intro/Intro'
 import {useRouter} from 'next/router'
 import {AppsData} from '../../../utils/context/appDataContext'
 import {findPerson} from '../../../utils/apis/api'
@@ -15,6 +16,10 @@ export default function Person() {
   const {setActiveRoute} = useContext(AppsData)
   const [w, setWidth] = useState(0)
   const [data, setData] = useState({ isSet: false, data: {} })
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
   
   useEffect(()=>{
     setActiveRoute('Person')
@@ -30,6 +35,16 @@ export default function Person() {
         if(!data.isSet) { setData({ isSet: true, data: a }) }
       }
     } gData()
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
+    }
   })
   
   return (
@@ -55,32 +70,29 @@ export default function Person() {
       </Head>
 
       <div className="main">
-        <Navbar 
-          onSearchPage={false}/>  
+        { session.isSet ? 
+        <> { session.isTrue ? <Intro /> : null }
+          <Navbar onSearchPage={false}/>  
 
-      { data.isSet ? 
-        <Header 
-          details={data.data.details}
-          width={w}/> : null }
-
-        <section className='item-details'>
-          {data.isSet ?
-            <ItemStats data={data.data.details}/> : null}
 
           {data.isSet ? 
-            <DetailMovies 
-              width={w} data={data.data.movies}/> : null}
-        </section>
-        
-        {data.isSet ? 
-          <Posters 
-            name={data.data.details.name}
-            posters={data.data.posters}/> : null}
-        <Footer quote={12}/>
+            <Header 
+              details={data.data.details}
+              width={w}/> : null }
+
+
+          <section className='item-details'>
+            {data.isSet ? <ItemStats data={data.data.details}/> : null}
+            {data.isSet ? <DetailMovies width={w} data={data.data.movies}/> : null}
+          </section>
+          
+
+          {data.isSet ? 
+            <Posters name={data.data.details.name}
+              posters={data.data.posters}/> : null}
+          <Footer quote={12}/>
+        </> : null }
       </div>
-
-
-
     </div>
   )
 }

@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Navbar from '../../../components/Navbars/Navbars'
 import MovieList from '../../../components/MovieLists/MovieList'
 import Footer from '../../../components/Footer/Footer'
+import Intro from '../../../components/Intro/Intro'
 import Pagination from '../../../components/Pagination/Pagination'
 import {useRouter} from 'next/router'
 import {AppsData} from '../../../utils/context/appDataContext'
@@ -15,6 +16,10 @@ export default function Genre() {
   const router = useRouter()
   const {setActiveRoute} = useContext(AppsData)
   const [data, setData] = useState(initData)
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
   
   useEffect(()=>{
     let valid, url;
@@ -44,6 +49,17 @@ export default function Genre() {
       }  
     } else {
       router.replace('/404', window.location.pathname)
+    }
+
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
     }
 
   },[])
@@ -88,23 +104,26 @@ export default function Genre() {
       </Head>
 
       <div className="main page-padding">
-        <Navbar 
-          onSearchPage={false}/>  
-        { Object.keys(data.data).length !== 0 ? 
-            <MovieList 
-              viewBtn={false}
-              hlink='/popular'
-              aslink='/popular'
-              link={`/genre/${data.link}`}
-              type='movie'
-              title={`${findTitle(data.genre)} ${data.genre === '10770' ? '' : 'Movies'}`}
-              total={data.data.total_results}
-              data={data.data.results}/> : null
-        }
-        <Pagination 
-          click={(val=>getNewData(val))}
-          totalpages={data.totalpages} />
-        <Footer quote={14}/>
+        { session.isSet ? 
+        <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            onSearchPage={false}/>  
+          { Object.keys(data.data).length !== 0 ? 
+              <MovieList 
+                viewBtn={false}
+                hlink='/popular'
+                aslink='/popular'
+                link={`/genre/${data.link}`}
+                type='movie'
+                title={`${findTitle(data.genre)} ${data.genre === '10770' ? '' : 'Movies'}`}
+                total={data.data.total_results}
+                data={data.data.results}/> : null
+          }
+          <Pagination 
+            click={(val=>getNewData(val))}
+            totalpages={data.totalpages} />
+          <Footer quote={14}/>
+        </> : null }
       </div>
     </div>
   )

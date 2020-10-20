@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
 import MovieList from '../components/MovieLists/MovieList'
 import Footer from '../components/Footer/Footer'
+import Intro from '../components/Intro/Intro'
 import Pagination from '../components/Pagination/Pagination'
 import {AppsData} from '../utils/context/appDataContext'
 import {scrollTop, spd, initData} from '../utils/common/common'
@@ -11,6 +12,10 @@ import {getDataPage} from '../utils/apis/api'
 export default function TopRated() {
   const {setActiveRoute} = useContext(AppsData)
   const [data, setData] = useState(initData)
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
 
   useEffect(()=>{
     setActiveRoute('Top Rated')
@@ -21,6 +26,16 @@ export default function TopRated() {
       }
       gData()
     } 
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
+    }
   },[])
 
   async function getNewData(val){
@@ -53,23 +68,26 @@ export default function TopRated() {
       </Head>
 
       <div className="main page-padding">
-        <Navbar 
-          onSearchPage={false}/>  
-        { Object.keys(data.data).length !== 0 ? 
-            <MovieList 
-              viewBtn={false}
-              hlink='/top-rated'
-              aslink='/top-rated'
-              link='/top-rated/movies'
-              type='movie'
-              title={'Top Rated Movies'}
-              total={data.data.total_results}
-              data={data.data.results}/> : null
-        }
-        <Pagination 
-          click={(val=>getNewData(val))}
-          totalpages={data.totalpages} />
-        <Footer quote={9}/>
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            onSearchPage={false}/>  
+          { Object.keys(data.data).length !== 0 ? 
+              <MovieList 
+                viewBtn={false}
+                hlink='/top-rated'
+                aslink='/top-rated'
+                link='/top-rated/movies'
+                type='movie'
+                title={'Top Rated Movies'}
+                total={data.data.total_results}
+                data={data.data.results}/> : null
+          }
+          <Pagination 
+            click={(val=>getNewData(val))}
+            totalpages={data.totalpages} />
+          <Footer quote={9}/>
+        </> : null }
       </div>
     </div>
   )

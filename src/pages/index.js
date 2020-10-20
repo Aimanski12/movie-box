@@ -1,19 +1,33 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
 import HeaderCarousel from '../components/Header/Carousel'
 import MovieList from '../components/MovieLists/MovieList'
 import Footer from '../components/Footer/Footer'
+import Intro from '../components/Intro/Intro'
 import {filterData} from '../utils/common/common'
 import {AppsData} from '../utils/context/appDataContext'
 import {homeDataPage} from '../utils/apis/api'
 
 export default function Home({data}) {
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
   const {setActiveRoute} = useContext(AppsData)
   useEffect(()=>{
     setActiveRoute('Home')
-  })
 
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
+    }
+  })
 
   return (
     <div className='main-container content-center'>
@@ -37,33 +51,34 @@ export default function Home({data}) {
         <meta name="twitter:card" content="summary" />
       </Head>
 
+
       <div className="main">
-        <Navbar 
-          onSearchPage={false}/>  
-        <HeaderCarousel 
-          data={data.popular}/>
-
-        <MovieList 
-          type='movie'
-          viewBtn={true}
-          hlink='/top-rated'
-          aslink='/top-rated'
-          link='/top-rated/movies'
-          title={'Top-Rated Movies'}
-          total={data.toprated.total_results}
-          data={filterData(data.toprated.results)}/>
-
-        <MovieList 
-          type='movie'
-          viewBtn={true}
-          hlink='/upcoming'
-          aslink='/upcoming'
-          link='/upcoming/movies'
-          title={'Upcoming Movies'}
-          total={data.upcoming.total_results}
-          data={filterData(data.upcoming.results)} />
-
-        <Footer quote={0}/>
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+            <Navbar 
+              onSearchPage={false}/>  
+            <HeaderCarousel 
+              data={data.popular}/>
+            <MovieList 
+              type='movie'
+              viewBtn={true}
+              hlink='/top-rated'
+              aslink='/top-rated'
+              link='/top-rated/movies'
+              title={'Top-Rated Movies'}
+              total={data.toprated.total_results}
+              data={filterData(data.toprated.results)}/>
+            <MovieList 
+              type='movie'
+              viewBtn={true}
+              hlink='/upcoming'
+              aslink='/upcoming'
+              link='/upcoming/movies'
+              title={'Upcoming Movies'}
+              total={data.upcoming.total_results}
+              data={filterData(data.upcoming.results)} />
+            <Footer quote={0}/>
+          </> : null }
 
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, {useEffect, useContext, useState} from 'react'
 import Head from 'next/head'
 import Navbar from '../../../components/Navbars/Navbars'
+import Intro from '../../../components/Intro/Intro'
 import Footer from '../../../components/Footer/Footer'
 import Movie from '../../../components/DetailPage/Detail'
 import {AppsData} from '../../../utils/context/appDataContext'
@@ -13,6 +14,10 @@ export default function MovieId() {
   const router = useRouter()
   const [data, setData] = useState(initData)
   const {setActiveRoute} = useContext(AppsData)
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
 
   useEffect(()=>{
     setActiveRoute('Movie Indvl')
@@ -32,6 +37,16 @@ export default function MovieId() {
             setData(movie)            
           }
         } gData()
+      }
+    }
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
       }
     }
   }, [])
@@ -58,11 +73,14 @@ export default function MovieId() {
       </Head>
 
       <div className="main">
-        <Navbar 
-          onSearchPage={false}/>  
-        <Movie 
-          data={data}/>
-        <Footer quote={15}/>
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            onSearchPage={false}/>  
+          <Movie 
+            data={data}/>
+          <Footer quote={15}/>
+        </> : null }
       </div>
 
     </div>

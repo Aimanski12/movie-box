@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbars/Navbars'
 import Footer from '../../components/Footer/Footer'
 import Pagination from '../../components/Pagination/Pagination'
 import Person from '../../components/Person/main'
+import Intro from '../../components/Intro/Intro'
 import {AppsData} from '../../utils/context/appDataContext'
 import {scrollTop, spd, initData} from '../../utils/common/common'
 import {getDataPage} from '../../utils/apis/api'
@@ -11,6 +12,10 @@ import {getDataPage} from '../../utils/apis/api'
 export default function People() {
   const {setActiveRoute} = useContext(AppsData)
   const [data, setData] = useState(initData)
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
 
   useEffect(()=>{
     setActiveRoute('People')
@@ -20,6 +25,16 @@ export default function People() {
         setData( spd(a.data, data) )
       }
       gData()
+    }
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
     }
   })
   
@@ -55,13 +70,16 @@ export default function People() {
       </Head>
 
       <div className="main page-padding">
-        <Navbar 
-          onSearchPage={false}/>  
-        {people}
-        <Pagination 
-          click={(val=>getNewData(val))}
-          totalpages={data.totalpages} />
-        <Footer quote={11}/>
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            onSearchPage={false}/>  
+          {people}
+          <Pagination 
+            click={(val=>getNewData(val))}
+            totalpages={data.totalpages} />
+          <Footer quote={11}/>
+        </> : null }
       </div>
     </div>
   )

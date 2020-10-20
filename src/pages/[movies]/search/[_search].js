@@ -2,6 +2,7 @@ import React, {useEffect, useContext, useState} from 'react'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
 import Navbar from '../../../components/Navbars/Navbars'
+import Intro from '../../../components/Intro/Intro'
 import Footer from '../../../components/Footer/Footer'
 import {AppsData} from '../../../utils/context/appDataContext'
 import {searchMovie, getAnotherData} from '../../../utils/apis/api'
@@ -18,6 +19,10 @@ export default function Search() {
   const {setActiveRoute} = useContext(AppsData)
   const [activePage, setActivePage] = useState(0)
   const [data, setData] = useState({isSet: false, data: {}})
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
   
   useEffect(()=>{
     setActiveRoute('Search')
@@ -37,6 +42,16 @@ export default function Search() {
       }
       gData()
     } 
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
+    }
   },[])
   
 
@@ -88,50 +103,54 @@ export default function Search() {
       </Head>
 
       <div className="main page-padding search-page">
-        <Navbar 
-          width={w}
-          onSearchPage={true}
-          click={(val)=>{search(val)}}/>  
-        
-        <div className='content-center movielist-container'>
-          <div className="movielist-wrapper">
-
-          { data.isSet ? 
-            <Header 
-              data={data.data}
-              query={data.url}/> : null}
-
-          {data.isSet ? 
-            <BreadCrumbs 
-              page={activePage}
-              click={(val)=>setBreadCrumbs(val)}
-              data={data.data}/> : null }
-
-          <div className="item-result-wrapper">
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            width={w}
+            onSearchPage={true}
+            click={(val)=>{search(val)}}/>  
           
-          {data.isSet ? 
-            <SearchItems width={w} img='film'
-              text='Movies'
-              cname={'item-open'} 
-              link='/search/movies'
-              data={data.data.movies}
-              click={(page)=>getNewData(page, 'movies')}/> : null }
-          {data.isSet ? 
-            <SearchItems width={w} img='tv' 
-              data={data.data.tvshows}
-              text='TV Shows'
-              link='/tv-shows/search'
-              click={(page)=>getNewData(page, 'tvshows')}/> : null }
-          {data.isSet ? 
-            <People width={w} img='mask' 
-              data={data.data.people}
-              text='People'
-              click={(page)=>getNewData(page, 'people')} /> : null }
+          <div className='content-center movielist-container'>
+            <div className="movielist-wrapper">
+
+            { data.isSet ? 
+              <Header 
+                data={data.data}
+                query={data.url}/> : null}
+
+            {data.isSet ? 
+              <BreadCrumbs 
+                page={activePage}
+                click={(val)=>setBreadCrumbs(val)}
+                data={data.data}/> : null }
+
+            <div className="item-result-wrapper">
+            
+            {data.isSet ? 
+              <SearchItems width={w} img='film'
+                text='Movies'
+                cname={'item-open'} 
+                link='/search/movies'
+                data={data.data.movies}
+                click={(page)=>getNewData(page, 'movies')}/> : null }
+            {data.isSet ? 
+              <SearchItems width={w} img='tv' 
+                data={data.data.tvshows}
+                text='TV Shows'
+                link='/tv-shows/search'
+                click={(page)=>getNewData(page, 'tvshows')}/> : null }
+            {data.isSet ? 
+              <People width={w} img='mask' 
+                data={data.data.people}
+                text='People'
+                click={(page)=>getNewData(page, 'people')} /> : null }
+              </div>
             </div>
           </div>
-        </div>
-        
-        <Footer quote={16}/>
+          
+          <Footer quote={16}/>
+
+        </> : null }
 
       </div>
     </div>

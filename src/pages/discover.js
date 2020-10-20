@@ -1,17 +1,31 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useEffect, useContext, useState} from 'react'
 import Head from 'next/head'
 import Navbar from '../components/Navbars/Navbars'
 import MovieList from '../components/MovieLists/MovieList'
 import Footer from '../components/Footer/Footer'
+import Intro from '../components/Intro/Intro'
 import {AppsData} from '../utils/context/appDataContext'
 import {discoverDataPage} from '../utils/apis/api'
 import {filterData} from '../utils/common/common'
 
 export default function Discover({data}) {
   const {setActiveRoute} = useContext(AppsData)
-
+  const [session, setSession] = useState({
+    isSet: false,
+    isTrue: false
+  })
   useEffect(()=>{
     setActiveRoute('Discover')
+
+    // check if the session is empty or not
+    let hsession = sessionStorage.getItem('movie-box')
+    if(!session.isSet) {
+      if(hsession){
+        setSession({isSet: true})
+      } else {
+        setSession({isSet: true, isTrue: true})
+      }
+    }
   })
 
   return (
@@ -37,41 +51,43 @@ export default function Discover({data}) {
       </Head>
 
       <div className="main page-padding">
-        <Navbar 
-          onSearchPage={false}/>  
+        { session.isSet ? 
+          <> { session.isTrue ? <Intro /> : null }
+          <Navbar 
+            onSearchPage={false}/>  
 
-        <MovieList 
-          type='movie'
-          viewBtn={true}
-          hlink='/top-rated'
-          aslink='/top-rated'
-          link='/top-rated/movies'
-          title={'Top-Rated Movies'}
-          total={data.toprated.total_results}
-          data={filterData(data.toprated.results)}/>
+          <MovieList 
+            type='movie'
+            viewBtn={true}
+            hlink='/top-rated'
+            aslink='/top-rated'
+            link='/top-rated/movies'
+            title={'Top-Rated Movies'}
+            total={data.toprated.total_results}
+            data={filterData(data.toprated.results)}/>
 
-        <MovieList 
-          type='movie'
-          viewBtn={true}
-          hlink='/popular'
-          aslink='/popular'
-          link='/popular/movies'
-          title={'Popular Movies'}
-          total={data.popular.total_results}
-          data={filterData(data.popular.results)}/>
+          <MovieList 
+            type='movie'
+            viewBtn={true}
+            hlink='/popular'
+            aslink='/popular'
+            link='/popular/movies'
+            title={'Popular Movies'}
+            total={data.popular.total_results}
+            data={filterData(data.popular.results)}/>
 
-        <MovieList 
-          type='movie'
-          viewBtn={true}
-          hlink='/upcoming'
-          aslink='/upcoming'
-          link='/upcoming/movies'
-          title={'Upcoming Movies'}
-          total={data.upcoming.total_results}
-          data={filterData(data.upcoming.results)}/>
+          <MovieList 
+            type='movie'
+            viewBtn={true}
+            hlink='/upcoming'
+            aslink='/upcoming'
+            link='/upcoming/movies'
+            title={'Upcoming Movies'}
+            total={data.upcoming.total_results}
+            data={filterData(data.upcoming.results)}/>
 
-        <Footer quote={7}/>
-      
+          <Footer quote={7}/>
+        </> : null } 
       </div>
     </div>
   )
