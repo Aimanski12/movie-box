@@ -1,4 +1,4 @@
-## Movie-Box-Site
+## Movie-Box
 
 > This website allows the user to search movies produced from all over the world. It features top-rated, upcoming, popular released movies and many more. It also allows searching movies by genre and on-air tv shows and download movie posters. You can also search actors and actresses movies and stats.
 
