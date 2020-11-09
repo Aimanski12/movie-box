@@ -2,11 +2,13 @@
 
 > This website allows the user to search movies produced from all over the world. It features top-rated, upcoming, popular released movies and many more. It also allows searching movies by genre and on-air tv shows and download movie posters. You can also search actors and actresses movies and stats.
 
-[View it live from your browser.](http://movie-box-site.vercel.app) Deployed through vercel.<br>
+View this from your browser [live].(http://movie-box-site.vercel.app)<br><br>
+View UX/UI design on [Behance].(https://www.behance.net/gallery/104066973/Movie-Box)
+<br>
 
 <div float="left">
   <img src="https://github.com/Aimanski12/proj-resource/blob/master/libs/react/react24-movie-box.gif" alt="screen shot">
-</div>
+</div><br><br>
 
 > Things I learned in this project;
   * How to query data using GET/POST/PUT/DELETE request from  and external API.
