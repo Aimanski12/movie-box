@@ -2,9 +2,9 @@
 
 > This website allows the user to search movies produced from all over the world. It features top-rated, upcoming, popular released movies and many more. It also allows searching movies by genre and on-air tv shows and download movie posters. You can also search actors and actresses movies and stats.
 
-View this from your browser [live].(http://movie-box-site.vercel.app)<br><br>
-View UX/UI design on [Behance].(https://www.behance.net/gallery/104066973/Movie-Box)
-<br>
+View this from your browser [live](http://movie-box-site.vercel.app).<br><br>
+View UX/UI design on [Behance](https://www.behance.net/gallery/104066973/Movie-Box).
+<br><br>
 
 <div float="left">
   <img src="https://github.com/Aimanski12/proj-resource/blob/master/libs/react/react24-movie-box.gif" alt="screen shot">
